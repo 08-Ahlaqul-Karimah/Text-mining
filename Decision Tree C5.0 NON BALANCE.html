@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Decision Tree C5.0 With SMOTE &#8212; Text Mining</title>
+    <title>Decision Tree C5.0 NON BALANCE &#8212; Text Mining</title>
   
   
   
@@ -60,10 +60,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Decision Tree C5.0 With SMOTE';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Decision Tree C5.0 NON BALANCE';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Decision Tree C5.0 With ROS" href="Decision%20Tree%20C5.0%20With%20ROS.html" />
+    <link rel="next" title="Decision Tree C5.0 With ROS" href="Decision%20Tree%20C5.0%20With%20ROS.html" />
+    <link rel="prev" title="Preprocessing" href="Preprocessing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -182,9 +183,9 @@
 
 <li class="toctree-l1"><a class="reference internal" href="Preprocessing.html">Preprocessing</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="Decision%20Tree%20C5.0%20NON%20BALANCE.html">Decision Tree C5.0 NON BALANCE</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Decision Tree C5.0 NON BALANCE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Decision%20Tree%20C5.0%20With%20ROS.html">Decision Tree C5.0 With ROS</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Decision Tree C5.0 With SMOTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Decision%20Tree%20C5.0%20With%20SMOTE.html">Decision Tree C5.0 With SMOTE</a></li>
 </ul>
 
     </div>
@@ -239,7 +240,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/08-Ahlaqul-Karimah/Text-mining/blob/gh-pages/_sources/Decision Tree C5.0 With SMOTE.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/08-Ahlaqul-Karimah/Text-mining/blob/gh-pages/_sources/Decision Tree C5.0 NON BALANCE.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -287,7 +288,7 @@
       
       
       
-      <li><a href="https://github.com/08-Ahlaqul-Karimah/Text-mining/issues/new?title=Issue%20on%20page%20%2FDecision Tree C5.0 With SMOTE.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/08-Ahlaqul-Karimah/Text-mining/issues/new?title=Issue%20on%20page%20%2FDecision Tree C5.0 NON BALANCE.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -317,7 +318,7 @@
       
       
       
-      <li><a href="_sources/Decision Tree C5.0 With SMOTE.ipynb" target="_blank"
+      <li><a href="_sources/Decision Tree C5.0 NON BALANCE.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -393,7 +394,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Decision Tree C5.0 With SMOTE</h1>
+    <h1>Decision Tree C5.0 NON BALANCE</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -406,8 +407,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation">preparation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">load data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">preprocessing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">Smote</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">tf idf</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data">Split Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-ratio">Gain Ratio</a><ul class="nav section-nav flex-column">
@@ -426,27 +426,13 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="decision-tree-c5-0-with-smote">
-<h1>Decision Tree C5.0 With SMOTE<a class="headerlink" href="#decision-tree-c5-0-with-smote" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="decision-tree-c5-0-non-balance">
+<h1>Decision Tree C5.0 NON BALANCE<a class="headerlink" href="#decision-tree-c5-0-non-balance" title="Link to this heading">#</a></h1>
 <section id="preparation">
 <h2>preparation<a class="headerlink" href="#preparation" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">plot_tree</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span><span class="p">,</span> <span class="n">CountVectorizer</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">joblib</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">resource</span>
-<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">plot_tree</span>
@@ -540,25 +526,9 @@
 </section>
 <section id="preprocessing">
 <h2>preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># #mengubah result</span>
-<span class="c1"># label=[]</span>
-<span class="c1"># for index, row in data.iterrows():#Ini adalah loop yang berjalan melalui setiap baris dalam DataFrame &#39;df&#39;</span>
-<span class="c1">#   if row[&quot;Sentimen&quot;] == &#39;Positif&#39;:</span>
-<span class="c1">#     label.append(1)</span>
-<span class="c1">#   elif row[&quot;Sentimen&quot;] == &#39;Negatif&#39;:</span>
-<span class="c1">#     label.append(-1)</span>
-<span class="c1">#   else:</span>
-<span class="c1">#     label.append(0)</span>
-
-<span class="c1"># data[&#39;label&#39;]=label</span>
-<span class="c1"># data=data.drop(columns=[&#39;Sentimen&#39;])</span>
-<span class="c1"># data.head()</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section id="tf-idf">
+<h2>tf idf<a class="headerlink" href="#tf-idf" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ast</span>
@@ -599,7 +569,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0f50cb66-b0ff-40c0-8509-5aeb05480062" class="colab-df-container">
+  <div id="df-04b0abc1-5f68-4024-93fa-a0200edf4f6d" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -793,7 +763,7 @@
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-0f50cb66-b0ff-40c0-8509-5aeb05480062')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-04b0abc1-5f68-4024-93fa-a0200edf4f6d')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -845,12 +815,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-0f50cb66-b0ff-40c0-8509-5aeb05480062 button.colab-df-convert');
+        document.querySelector('#df-04b0abc1-5f68-4024-93fa-a0200edf4f6d button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-0f50cb66-b0ff-40c0-8509-5aeb05480062');
+        const element = document.querySelector('#df-04b0abc1-5f68-4024-93fa-a0200edf4f6d');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -870,8 +840,8 @@
   </div>
 
 
-<div id="df-e655fbe5-93dd-447e-80b3-1267b1517ffb">
-  <button class="colab-df-quickchart" onclick="quickchart('df-e655fbe5-93dd-447e-80b3-1267b1517ffb')"
+<div id="df-7835237e-04b1-4e1f-96ab-2339b82045ac">
+  <button class="colab-df-quickchart" onclick="quickchart('df-7835237e-04b1-4e1f-96ab-2339b82045ac')"
             title="Suggest charts"
             style="display:none;">
 
@@ -990,14 +960,14 @@
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-e655fbe5-93dd-447e-80b3-1267b1517ffb button');
+        document.querySelector('#df-7835237e-04b1-4e1f-96ab-2339b82045ac button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_a6783703-723f-4073-9b95-894274df4a9b">
+  <div id="id_64b54c9f-f28a-4a21-8a04-492fab4699f5">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -1041,7 +1011,7 @@
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_a6783703-723f-4073-9b95-894274df4a9b button.colab-df-generate');
+        document.querySelector('#id_64b54c9f-f28a-4a21-8a04-492fab4699f5 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -1056,9 +1026,6 @@
   </div>
 </div></div>
 </div>
-</section>
-<section id="tf-idf">
-<h2>TF-IDF<a class="headerlink" href="#tf-idf" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mengimpor modul numpy untuk operasi numerik</span>
@@ -6342,83 +6309,83 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;berangan&#39;: 7.945909598613133,
- &#39;masuk&#39;: 2.6551204984858874,
- &#39;tiket&#39;: 3.2824705045010654,
- &#39;orang&#39;: 3.3457519544485854,
- &#39;langsung&#39;: 4.054089300502506,
- &#39;air&#39;: 2.5545573660979066,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;tiket&#39;: 3.2824705045010654,
+ &#39;laut&#39;: 3.3867833511264482,
  &#39;murah&#39;: 3.697414356563774,
  &#39;jernih&#39;: 4.727033773744932,
- &#39;bagus&#39;: 1.2581777436089616,
+ &#39;air&#39;: 2.5545573660979066,
  &#39;terjun&#39;: 3.141888553879876,
- &#39;laut&#39;: 3.3867833511264482,
  &#39;ribu&#39;: 3.8027748722216,
- &#39;parkir&#39;: 3.3973097641134355,
+ &#39;berangan&#39;: 7.945909598613133,
+ &#39;orang&#39;: 3.3457519544485854,
+ &#39;langsung&#39;: 4.054089300502506,
+ &#39;masuk&#39;: 2.6551204984858874,
+ &#39;bagus&#39;: 1.2581777436089616,
  &#39;area&#39;: 4.390561537123719,
- &#39;rest&#39;: 7.540444490504968,
- &#39;tempat&#39;: 2.4426126513785573,
+ &#39;parkir&#39;: 3.3973097641134355,
  &#39;atas&#39;: 5.420180954304877,
+ &#39;tempat&#39;: 2.4426126513785573,
+ &#39;rest&#39;: 7.540444490504968,
  &#39;mantap&#39;: 3.697414356563774,
- &#39;indah&#39;: 2.1347686056364323,
- &#39;terjunya&#39;: 7.540444490504968,
- &#39;adem&#39;: 5.028138866528853,
- &#39;musim&#39;: 4.464669509277441,
- &#39;cuman&#39;: 4.6137050884379285,
- &#39;pinggir&#39;: 4.90138716088971,
  &#39;pandang&#39;: 2.630243593730483,
- &#39;suasanyanya&#39;: 7.945909598613133,
+ &#39;musim&#39;: 4.464669509277441,
+ &#39;terjunya&#39;: 7.540444490504968,
  &#39;hujan&#39;: 4.578613768626659,
- &#39;wisata&#39;: 2.2158098156395583,
+ &#39;indah&#39;: 2.1347686056364323,
+ &#39;suasanyanya&#39;: 7.945909598613133,
+ &#39;cuman&#39;: 4.6137050884379285,
+ &#39;adem&#39;: 5.028138866528853,
+ &#39;pinggir&#39;: 4.90138716088971,
  &#39;banget&#39;: 2.5454870091279425,
- &#39;kunjung&#39;: 3.4350500920962825,
- &#39;move&#39;: 7.540444490504968,
- &#39;mantan&#39;: 6.847297309945023,
  &#39;recomended&#39;: 5.548014325814762,
- &#39;degan&#39;: 6.847297309945023,
- &#39;kuliner&#39;: 5.461002948825133,
- &#39;es&#39;: 6.693146630117765,
- &#39;keren&#39;: 2.902484481693886,
  &#39;on&#39;: 7.540444490504968,
- &#39;restoran&#39;: 7.252762418053187,
+ &#39;keren&#39;: 2.902484481693886,
+ &#39;degan&#39;: 6.847297309945023,
+ &#39;move&#39;: 7.540444490504968,
+ &#39;es&#39;: 6.693146630117765,
+ &#39;kunjung&#39;: 3.4350500920962825,
+ &#39;kuliner&#39;: 5.461002948825133,
+ &#39;wisata&#39;: 2.2158098156395583,
+ &#39;mantan&#39;: 6.847297309945023,
+ &#39;lokasi&#39;: 3.263778371488913,
  &#39;pas&#39;: 3.655450157464742,
- &#39;dusim&#39;: 7.945909598613133,
- &#39;poin&#39;: 7.945909598613133,
  &#39;licin&#39;: 6.2411615063747075,
+ &#39;poin&#39;: 7.945909598613133,
+ &#39;jalan&#39;: 2.6884142265853512,
+ &#39;restoran&#39;: 7.252762418053187,
  &#39;harga&#39;: 4.106457286019822,
  &#39;hati&#39;: 4.376376902131763,
- &#39;jalan&#39;: 2.6884142265853512,
- &#39;lokasi&#39;: 3.263778371488913,
- &#39;keruh&#39;: 5.999999449557819,
+ &#39;dusim&#39;: 7.945909598613133,
  &#39;habis&#39;: 5.055537840716968,
+ &#39;keruh&#39;: 5.999999449557819,
  &#39;pantau&#39;: 7.540444490504968,
  &#39;eksotis&#39;: 4.950177325059141,
  &#39;oke&#39;: 4.650072732608804,
+ &#39;deras&#39;: 6.847297309945023,
  &#39;cafe&#39;: 5.694617800006638,
  &#39;bersih&#39;: 2.479961390681145,
- &#39;att&#39;: 7.540444490504968,
- &#39;alir&#39;: 5.748685021276914,
- &#39;kelola&#39;: 3.756254856586707,
- &#39;tosca&#39;: 7.540444490504968,
- &#39;menu&#39;: 6.559615237493242,
- &#39;kemarau&#39;: 5.173320876373351,
  &#39;sedia&#39;: 4.22021617137648,
- &#39;masakan&#39;: 7.945909598613133,
- &#39;view&#39;: 4.033886593184986,
+ &#39;alir&#39;: 5.748685021276914,
+ &#39;att&#39;: 7.540444490504968,
+ &#39;menu&#39;: 6.559615237493242,
+ &#39;kelola&#39;: 3.756254856586707,
  &#39;kesini&#39;: 3.5032583421228165,
+ &#39;masakan&#39;: 7.945909598613133,
  &#39;warna&#39;: 4.877856663479515,
- &#39;deras&#39;: 6.847297309945023,
+ &#39;kemarau&#39;: 5.173320876373351,
+ &#39;tosca&#39;: 7.540444490504968,
+ &#39;view&#39;: 4.033886593184986,
  &#39;pantai&#39;: 1.9200436247878183,
- &#39;bumbu&#39;: 7.945909598613133,
- &#39;mobil&#39;: 3.966227944711172,
- &#39;enak&#39;: 4.1504204094409385,
- &#39;bakar&#39;: 6.336471686179032,
  &#39;tempuh&#39;: 5.8664680569332965,
+ &#39;mobil&#39;: 3.966227944711172,
+ &#39;ikan&#39;: 5.5035625632439285,
+ &#39;makan&#39;: 3.956925552048858,
+ &#39;rekomendasi&#39;: 5.1425492177065975,
+ &#39;bakar&#39;: 6.336471686179032,
+ &#39;enak&#39;: 4.1504204094409385,
  &#39;jam&#39;: 4.480173695813406,
  &#39;kota&#39;: 3.8268724238006606,
- &#39;rekomendasi&#39;: 5.1425492177065975,
- &#39;makan&#39;: 3.956925552048858,
- &#39;ikan&#39;: 5.5035625632439285,
+ &#39;bumbu&#39;: 7.945909598613133,
  &#39;sampang&#39;: 5.173320876373351,
  &#39;sowrey&#39;: 7.945909598613133,
  &#39;wajib&#39;: 4.810415382683983,
@@ -6427,206 +6394,206 @@
  &#39;spot&#39;: 3.175224974147468,
  &#39;desa&#39;: 4.810415382683983,
  &#39;bangkit&#39;: 7.945909598613133,
- &#39;anyar&#39;: 7.945909598613133,
  &#39;karang&#39;: 5.8664680569332965,
- &#39;r&#39;: 7.540444490504968,
+ &#39;anyar&#39;: 7.945909598613133,
  &#39;awat&#39;: 3.6486241923943417,
- &#39;like&#39;: 7.252762418053187,
- &#39;sila&#39;: 7.029618866738978,
- &#39;motor&#39;: 4.419549073996971,
  &#39;kembang&#39;: 4.578613768626659,
- &#39;mahal&#39;: 4.528182914999767,
+ &#39;motor&#39;: 4.419549073996971,
+ &#39;like&#39;: 7.252762418053187,
  &#39;obyek&#39;: 5.306852268997874,
+ &#39;sila&#39;: 7.029618866738978,
  &#39;lupa&#39;: 4.747236481062451,
+ &#39;mahal&#39;: 4.528182914999767,
  &#39;madu&#39;: 6.847297309945023,
  &#39;sampah&#39;: 3.8350357344398214,
+ &#39;r&#39;: 7.540444490504968,
  &#39;ukur&#39;: 6.847297309945023,
- &#39;lihat&#39;: 4.650072732608804,
- &#39;saran&#39;: 4.117268202124038,
  &#39;unik&#39;: 4.5119223941279865,
+ &#39;saran&#39;: 4.117268202124038,
  &#39;november&#39;: 7.029618866738978,
+ &#39;lihat&#39;: 4.650072732608804,
  &#39;toro&#39;: 5.0014706194466925,
  &#39;sungai&#39;: 5.931006578070868,
- &#39;jatuh&#39;: 5.343219913168749,
  &#39;tepi&#39;: 5.594534341449655,
  &#39;utara&#39;: 5.5035625632439285,
- &#39;time&#39;: 7.252762418053187,
+ &#39;jatuh&#39;: 5.343219913168749,
  &#39;family&#39;: 7.029618866738978,
- &#39;nyaman&#39;: 3.3815614071452966,
  &#39;enaak&#39;: 7.945909598613133,
+ &#39;nyaman&#39;: 3.3815614071452966,
+ &#39;time&#39;: 7.252762418053187,
  &#39;viewnya&#39;: 5.237859397510923,
  &#39;gaesss&#39;: 7.945909598613133,
+ &#39;coklat&#39;: 6.154150129385077,
  &#39;bening&#39;: 5.594534341449655,
  &#39;gaes&#39;: 6.074107421711541,
- &#39;coklat&#39;: 6.154150129385077,
- &#39;baik&#39;: 3.966227944711172,
- &#39;mari&#39;: 7.540444490504968,
  &#39;guna&#39;: 6.847297309945023,
- &#39;plastik&#39;: 6.336471686179032,
- &#39;kurang&#39;: 5.205069574687932,
+ &#39;mari&#39;: 7.540444490504968,
  &#39;thanks&#39;: 7.945909598613133,
- &#39;alam&#39;: 3.6151762583268017,
- &#39;santai&#39;: 5.028138866528853,
+ &#39;kurang&#39;: 5.205069574687932,
+ &#39;plastik&#39;: 6.336471686179032,
+ &#39;baik&#39;: 3.966227944711172,
  &#39;nuasa&#39;: 7.945909598613133,
- &#39;kelurga&#39;: 7.945909598613133,
  &#39;kerabat&#39;: 7.252762418053187,
+ &#39;alam&#39;: 3.6151762583268017,
+ &#39;kelurga&#39;: 7.945909598613133,
+ &#39;santai&#39;: 5.028138866528853,
  &#39;jaga&#39;: 3.956925552048858,
- &#39;pasang&#39;: 5.999999449557819,
  &#39;pasti&#39;: 6.336471686179032,
+ &#39;pasang&#39;: 5.999999449557819,
  &#39;keluarga&#39;: 3.2454292328207166,
  &#39;cocok&#39;: 3.1216038827083703,
- &#39;wisatawan&#39;: 4.727033773744932,
  &#39;beda&#39;: 5.205069574687932,
  &#39;gunung&#39;: 5.1425492177065975,
- &#39;manja&#39;: 5.594534341449655,
  &#39;mata&#39;: 4.767855768265187,
- &#39;tulis&#39;: 6.559615237493242,
- &#39;capture&#39;: 7.945909598613133,
- &#39;fotografer&#39;: 6.559615237493242,
+ &#39;wisatawan&#39;: 4.727033773744932,
+ &#39;manja&#39;: 5.594534341449655,
  &#39;icon&#39;: 7.252762418053187,
- &#39;ganggu&#39;: 6.154150129385077,
- &#39;toilet&#39;: 4.321568665636768,
  &#39;untuj&#39;: 7.540444490504968,
+ &#39;fotografer&#39;: 6.559615237493242,
+ &#39;toilet&#39;: 4.321568665636768,
+ &#39;capture&#39;: 7.945909598613133,
+ &#39;tulis&#39;: 6.559615237493242,
+ &#39;ganggu&#39;: 6.154150129385077,
+ &#39;eksotik&#39;: 5.931006578070868,
+ &#39;alami&#39;: 3.9756176850610108,
  &#39;santa&#39;: 5.173320876373351,
  &#39;sbagus&#39;: 7.945909598613133,
- &#39;alami&#39;: 3.9756176850610108,
- &#39;eksotik&#39;: 5.931006578070868,
- &#39;salah&#39;: 3.7487076509513244,
  &#39;sana&#39;: 4.464669509277441,
- &#39;ekspektasi&#39;: 6.847297309945023,
- &#39;foto&#39;: 2.6780514395498045,
- &#39;objek&#39;: 5.3809602411515955,
- &#39;main&#39;: 4.334991685968908,
  &#39;dar&#39;: 5.694617800006638,
+ &#39;salah&#39;: 3.7487076509513244,
+ &#39;main&#39;: 4.334991685968908,
+ &#39;foto&#39;: 2.6780514395498045,
  &#39;kesana&#39;: 3.794869692714487,
+ &#39;ekspektasi&#39;: 6.847297309945023,
+ &#39;objek&#39;: 5.3809602411515955,
  &#39;sentuh&#39;: 6.154150129385077,
  &#39;tangan&#39;: 6.2411615063747075,
- &#39;pofesional&#39;: 7.945909598613133,
- &#39;adalan&#39;: 7.945909598613133,
  &#39;investor&#39;: 7.945909598613133,
+ &#39;adalan&#39;: 7.945909598613133,
+ &#39;pofesional&#39;: 7.945909598613133,
  &#39;latar&#39;: 6.336471686179032,
  &#39;selfi&#39;: 5.594534341449655,
- &#39;airterjun&#39;: 7.252762418053187,
  &#39;renang&#39;: 4.282347952483486,
- &#39;daerah&#39;: 4.6137050884379285,
- &#39;pemkab&#39;: 6.847297309945023,
- &#39;asli&#39;: 5.112696254556917,
+ &#39;airterjun&#39;: 7.252762418053187,
  &#39;depan&#39;: 5.1425492177065975,
+ &#39;asli&#39;: 5.112696254556917,
  &#39;rawat&#39;: 5.643324505619087,
- &#39;harap&#39;: 5.748685021276914,
- &#39;sayang&#39;: 3.296722527208267,
  &#39;swasta&#39;: 7.252762418053187,
+ &#39;harap&#39;: 5.748685021276914,
+ &#39;pemkab&#39;: 6.847297309945023,
+ &#39;daerah&#39;: 4.6137050884379285,
+ &#39;sayang&#39;: 3.296722527208267,
  &#39;tawan&#39;: 6.154150129385077,
  &#39;tarik&#39;: 3.635110473227619,
- &#39;fasilitas&#39;: 3.4460999282828677,
  &#39;panorama&#39;: 5.205069574687932,
  &#39;kreativitas&#39;: 7.945909598613133,
  &#39;tambah&#39;: 4.282347952483486,
+ &#39;fasilitas&#39;: 3.4460999282828677,
  &#39;instagram&#39;: 6.847297309945023,
  &#39;jorok&#39;: 6.693146630117765,
  &#39;prewedding&#39;: 6.693146630117765,
  &#39;matahari&#39;: 5.112696254556917,
- &#39;jelang&#39;: 6.336471686179032,
  &#39;benam&#39;: 6.074107421711541,
+ &#39;jelang&#39;: 6.336471686179032,
  &#39;tawar&#39;: 5.5035625632439285,
- &#39;ombak&#39;: 4.5119223941279865,
  &#39;cantik&#39;: 4.4049502745758184,
+ &#39;ombak&#39;: 4.5119223941279865,
  &#39;mengalirr&#39;: 7.945909598613133,
- &#39;beautyfull&#39;: 7.540444490504968,
  &#39;sok&#39;: 6.154150129385077,
- &#39;kadang&#39;: 6.2411615063747075,
- &#39;gratis&#39;: 5.594534341449655,
+ &#39;beautyfull&#39;: 7.540444490504968,
  &#39;riah&#39;: 5.3809602411515955,
+ &#39;gratis&#39;: 5.594534341449655,
+ &#39;kadang&#39;: 6.2411615063747075,
  &#39;pokok&#39;: 4.687813060591651,
  &#39;strategis&#39;: 6.441832201836859,
+ &#39;hunting&#39;: 5.931006578070868,
  &#39;favorit&#39;: 6.2411615063747075,
+ &#39;destinasi&#39;: 4.128197272656228,
  &#39;lumayan&#39;: 3.0480697986622216,
  &#39;landscape&#39;: 6.847297309945023,
- &#39;hunting&#39;: 5.931006578070868,
- &#39;destinasi&#39;: 4.128197272656228,
+ &#39;anak&#39;: 4.208239980329765,
  &#39;free&#39;: 6.441832201836859,
  &#39;batu&#39;: 4.014083965888807,
- &#39;anak&#39;: 4.208239980329765,
- &#39;cong&#39;: 7.945909598613133,
  &#39;sengkok&#39;: 7.945909598613133,
- &#39;dus&#39;: 7.945909598613133,
- &#39;oreng&#39;: 7.945909598613133,
  &#39;nodusih&#39;: 7.945909598613133,
+ &#39;oreng&#39;: 7.945909598613133,
+ &#39;cong&#39;: 7.945909598613133,
+ &#39;dus&#39;: 7.945909598613133,
  &#39;ketapang&#39;: 5.748685021276914,
  &#39;treking&#39;: 7.945909598613133,
+ &#39;ragu&#39;: 7.252762418053187,
+ &#39;butuh&#39;: 4.8323942894027585,
  &#39;tinggi&#39;: 5.5035625632439285,
  &#39;meter&#39;: 6.693146630117765,
- &#39;butuh&#39;: 4.8323942894027585,
  &#39;sebentar&#39;: 6.693146630117765,
- &#39;ragu&#39;: 7.252762418053187,
- &#39;kayak&#39;: 4.707231146448752,
  &#39;turun&#39;: 5.055537840716968,
  &#39;tangga&#39;: 6.154150129385077,
- &#39;ambil&#39;: 4.90138716088971,
+ &#39;kayak&#39;: 4.707231146448752,
+ &#39;hasil&#39;: 5.5035625632439285,
  &#39;pribadi&#39;: 6.074107421711541,
- &#39;rujuan&#39;: 7.945909598613133,
  &#39;gambar&#39;: 5.999999449557819,
  &#39;bwrkunjung&#39;: 7.945909598613133,
- &#39;hasil&#39;: 5.5035625632439285,
- &#39;utama&#39;: 5.694617800006638,
+ &#39;ambil&#39;: 4.90138716088971,
+ &#39;rujuan&#39;: 7.945909598613133,
  &#39;akses&#39;: 3.589200771923541,
- &#39;refreshing&#39;: 5.5035625632439285,
+ &#39;utama&#39;: 5.694617800006638,
  &#39;tour&#39;: 5.931006578070868,
  &#39;piknik&#39;: 6.2411615063747075,
+ &#39;refreshing&#39;: 5.5035625632439285,
  &#39;deres&#39;: 7.540444490504968,
  &#39;luas&#39;: 3.9295265778607438,
- &#39;tukang&#39;: 6.336471686179032,
- &#39;taruh&#39;: 7.945909598613133,
- &#39;bayar&#39;: 3.6623230367525035,
- &#39;modus&#39;: 7.945909598613133,
- &#39;kecewa&#39;: 5.306852268997874,
- &#39;hilang&#39;: 5.237859397510923,
  &#39;helm&#39;: 7.252762418053187,
- &#39;pos&#39;: 6.336471686179032,
  &#39;titip&#39;: 7.029618866738978,
+ &#39;paksa&#39;: 7.029618866738978,
+ &#39;tukang&#39;: 6.336471686179032,
+ &#39;modus&#39;: 7.945909598613133,
+ &#39;bayar&#39;: 3.6623230367525035,
+ &#39;kecewa&#39;: 5.306852268997874,
+ &#39;diringkes&#39;: 7.945909598613133,
+ &#39;dalih&#39;: 7.540444490504968,
+ &#39;resiko&#39;: 7.029618866738978,
  &#39;malak&#39;: 7.252762418053187,
  &#39;mala&#39;: 7.029618866738978,
- &#39;resiko&#39;: 7.029618866738978,
- &#39;paksa&#39;: 7.029618866738978,
- &#39;dalih&#39;: 7.540444490504968,
- &#39;diringkes&#39;: 7.945909598613133,
- &#39;nyantai&#39;: 5.8664680569332965,
+ &#39;taruh&#39;: 7.945909598613133,
+ &#39;pos&#39;: 6.336471686179032,
+ &#39;hilang&#39;: 5.237859397510923,
  &#39;ngopi&#39;: 6.559615237493242,
- &#39;visit&#39;: 7.252762418053187,
+ &#39;nyantai&#39;: 5.8664680569332965,
  &#39;must&#39;: 7.540444490504968,
  &#39;kali&#39;: 4.014083965888807,
- &#39;place&#39;: 5.931006578070868,
+ &#39;indak&#39;: 6.2411615063747075,
+ &#39;beautiful&#39;: 6.336471686179032,
  &#39;viewing&#39;: 7.945909598613133,
  &#39;bosan&#39;: 6.154150129385077,
- &#39;beautiful&#39;: 6.336471686179032,
- &#39;indak&#39;: 6.2411615063747075,
+ &#39;visit&#39;: 7.252762418053187,
+ &#39;place&#39;: 5.931006578070868,
  &#39;keliling&#39;: 5.112696254556917,
- &#39;ramai&#39;: 5.205069574687932,
- &#39;moga&#39;: 4.257030144499196,
  &#39;baguus&#39;: 7.252762418053187,
+ &#39;moga&#39;: 4.257030144499196,
+ &#39;ramai&#39;: 5.205069574687932,
  &#39;masyarakat&#39;: 5.055537840716968,
+ &#39;sejuk&#39;: 3.641844505408963,
  &#39;suasana&#39;: 4.004327790943442,
  &#39;siang&#39;: 4.376376902131763,
- &#39;sejuk&#39;: 3.641844505408963,
  &#39;ngadem&#39;: 7.540444490504968,
+ &#39;camat&#39;: 5.805843435116862,
+ &#39;jawa&#39;: 4.727033773744932,
  &#39;kabupaten&#39;: 4.528182914999767,
  &#39;timur&#39;: 4.650072732608804,
- &#39;jawa&#39;: 4.727033773744932,
- &#39;camat&#39;: 5.805843435116862,
  &#39;garam&#39;: 7.029618866738978,
  &#39;banyak&#39;: 5.3809602411515955,
- &#39;upgrade&#39;: 7.540444490504968,
  &#39;wow&#39;: 5.643324505619087,
- &#39;tata&#39;: 4.90138716088971,
+ &#39;upgrade&#39;: 7.540444490504968,
  &#39;ulang&#39;: 7.252762418053187,
  &#39;ajaib&#39;: 7.945909598613133,
+ &#39;tata&#39;: 4.90138716088971,
  &#39;trip&#39;: 6.693146630117765,
- &#39;jooss&#39;: 7.945909598613133,
  &#39;rugi&#39;: 5.643324505619087,
  &#39;mamtaap&#39;: 7.945909598613133,
- &#39;bintang&#39;: 5.931006578070868,
- &#39;cennel&#39;: 7.945909598613133,
+ &#39;jooss&#39;: 7.945909598613133,
  &#39;my&#39;: 7.540444490504968,
+ &#39;cennel&#39;: 7.945909598613133,
+ &#39;bintang&#39;: 5.931006578070868,
  &#39;youtube&#39;: 7.252762418053187,
  &#39;aman&#39;: 4.561519335267358,
  &#39;sahabat&#39;: 5.8664680569332965,
@@ -6639,116 +6606,116 @@
  &#39;segar&#39;: 5.205069574687932,
  &#39;butek&#39;: 7.540444490504968,
  &#39;sip&#39;: 5.5035625632439285,
- &#39;deh&#39;: 4.687813060591651,
+ &#39;kor&#39;: 7.945909598613133,
  &#39;periksa&#39;: 7.252762418053187,
  &#39;settong&#39;: 7.945909598613133,
- &#39;kor&#39;: 7.945909598613133,
+ &#39;deh&#39;: 4.687813060591651,
  &#39;tingkat&#39;: 4.747236481062451,
  &#39;sih&#39;: 7.945909598613133,
- &#39;allah&#39;: 6.074107421711541,
- &#39;esa&#39;: 7.945909598613133,
- &#39;alhamdulillah&#39;: 5.643324505619087,
  &#39;biaya&#39;: 4.4959220527815456,
  &#39;tuhan&#39;: 6.559615237493242,
- &#39;puji&#39;: 7.540444490504968,
  &#39;dipingir&#39;: 7.945909598613133,
- &#39;mungut&#39;: 7.540444490504968,
+ &#39;alhamdulillah&#39;: 5.643324505619087,
+ &#39;puji&#39;: 7.540444490504968,
  &#39;urus&#39;: 6.441832201836859,
+ &#39;mungut&#39;: 7.540444490504968,
+ &#39;esa&#39;: 7.945909598613133,
  &#39;tunggal&#39;: 7.945909598613133,
+ &#39;allah&#39;: 6.074107421711541,
+ &#39;layan&#39;: 5.1425492177065975,
  &#39;muas&#39;: 5.594534341449655,
  &#39;kena&#39;: 5.173320876373351,
- &#39;layan&#39;: 5.1425492177065975,
  &#39;sera&#39;: 5.643324505619087,
  &#39;opening&#39;: 7.945909598613133,
- &#39;kotor&#39;: 4.561519335267358,
  &#39;sempit&#39;: 5.112696254556917,
- &#39;happy&#39;: 6.847297309945023,
+ &#39;kotor&#39;: 4.561519335267358,
  &#39;libur&#39;: 3.5331113052724974,
+ &#39;happy&#39;: 6.847297309945023,
  &#39;alternatif&#39;: 6.336471686179032,
  &#39;sekolah&#39;: 6.693146630117765,
- &#39;sea&#39;: 6.847297309945023,
  &#39;warung&#39;: 4.950177325059141,
- &#39;food&#39;: 7.945909598613133,
- &#39;maknyus&#39;: 7.540444490504968,
  &#39;andal&#39;: 6.559615237493242,
+ &#39;maknyus&#39;: 7.540444490504968,
+ &#39;sea&#39;: 6.847297309945023,
+ &#39;food&#39;: 7.945909598613133,
+ &#39;tipis&#39;: 6.847297309945023,
  &#39;healing&#39;: 5.999999449557819,
  &#39;budget&#39;: 6.693146630117765,
- &#39;tipis&#39;: 6.847297309945023,
  &#39;salur&#39;: 7.252762418053187,
  &#39;cipta&#39;: 5.748685021276914,
  &#39;bafus&#39;: 7.945909598613133,
- &#39;polusi&#39;: 7.252762418053187,
  &#39;hulu&#39;: 7.029618866738978,
+ &#39;polusi&#39;: 7.252762418053187,
  &#39;pergi&#39;: 5.548014325814762,
  &#39;damai&#39;: 6.336471686179032,
  &#39;masya&#39;: 7.540444490504968,
  &#39;nikmat&#39;: 4.348597338024687,
+ &#39;dengam&#39;: 7.540444490504968,
+ &#39;rasa&#39;: 6.336471686179032,
  &#39;campur&#39;: 6.693146630117765,
  &#39;bawah&#39;: 6.441832201836859,
- &#39;rasa&#39;: 6.336471686179032,
- &#39;dengam&#39;: 7.540444490504968,
- &#39;golong&#39;: 6.559615237493242,
- &#39;asal&#39;: 7.029618866738978,
  &#39;tumpah&#39;: 7.945909598613133,
  &#39;satu&#39;: 4.8323942894027585,
+ &#39;asal&#39;: 7.029618866738978,
+ &#39;golong&#39;: 6.559615237493242,
  &#39;pada&#39;: 4.975495133043432,
  &#39;karaoke&#39;: 7.252762418053187,
- &#39;hibur&#39;: 6.336471686179032,
  &#39;restorant&#39;: 7.945909598613133,
- &#39;cerita&#39;: 6.154150129385077,
+ &#39;hibur&#39;: 6.336471686179032,
  &#39;singkat&#39;: 7.945909598613133,
+ &#39;cerita&#39;: 6.154150129385077,
  &#39;kenang&#39;: 5.461002948825133,
  &#39;ikat&#39;: 7.945909598613133,
  &#39;sumpah&#39;: 6.847297309945023,
  &#39;takjub&#39;: 5.112696254556917,
  &#39;leseh&#39;: 6.559615237493242,
- &#39;jual&#39;: 4.767855768265187,
- &#39;sore&#39;: 4.106457286019822,
  &#39;arah&#39;: 4.854867145254817,
+ &#39;jual&#39;: 4.767855768265187,
  &#39;minum&#39;: 5.271760949186604,
+ &#39;sore&#39;: 4.106457286019822,
  &#39;sngat&#39;: 7.252762418053187,
- &#39;belah&#39;: 6.074107421711541,
- &#39;pagi&#39;: 4.362390660157023,
- &#39;desain&#39;: 6.847297309945023,
- &#39;raya&#39;: 5.3809602411515955,
  &#39;cerah&#39;: 5.999999449557819,
+ &#39;belah&#39;: 6.074107421711541,
+ &#39;desain&#39;: 6.847297309945023,
  &#39;dinding&#39;: 7.252762418053187,
- &#39;sederhana&#39;: 6.2411615063747075,
+ &#39;pagi&#39;: 4.362390660157023,
+ &#39;raya&#39;: 5.3809602411515955,
  &#39;asik&#39;: 5.343219913168749,
- &#39;momen&#39;: 6.693146630117765,
+ &#39;sederhana&#39;: 6.2411615063747075,
  &#39;senja&#39;: 6.074107421711541,
- &#39;follow&#39;: 7.945909598613133,
- &#39;follback&#39;: 7.945909598613133,
  &#39;abadi&#39;: 6.847297309945023,
+ &#39;momen&#39;: 6.693146630117765,
+ &#39;follow&#39;: 7.945909598613133,
  &#39;bonus&#39;: 7.540444490504968,
+ &#39;follback&#39;: 7.945909598613133,
  &#39;ig&#39;: 7.252762418053187,
- &#39;biru&#39;: 4.727033773744932,
  &#39;hijau&#39;: 5.237859397510923,
- &#39;pengololaannya&#39;: 7.945909598613133,
- &#39;maksimal&#39;: 5.8664680569332965,
- &#39;bas&#39;: 7.540444490504968,
+ &#39;biru&#39;: 4.727033773744932,
  &#39;potensi&#39;: 5.999999449557819,
+ &#39;pengololaannya&#39;: 7.945909598613133,
  &#39;mandiri&#39;: 7.945909598613133,
- &#39;sensasi&#39;: 7.029618866738978,
+ &#39;bas&#39;: 7.540444490504968,
+ &#39;maksimal&#39;: 5.8664680569332965,
  &#39;percik&#39;: 7.945909598613133,
- &#39;temu&#39;: 5.694617800006638,
+ &#39;sensasi&#39;: 7.029618866738978,
  &#39;pariwisata&#39;: 5.461002948825133,
  &#39;aku&#39;: 6.847297309945023,
- &#39;pasir&#39;: 3.330789081771873,
  &#39;anda&#39;: 7.945909598613133,
+ &#39;pasir&#39;: 3.330789081771873,
  &#39;sd&#39;: 7.252762418053187,
+ &#39;temu&#39;: 5.694617800006638,
  &#39;tambang&#39;: 3.6086188577806424,
  &#39;didlm&#39;: 7.945909598613133,
  &#39;dasar&#39;: 6.441832201836859,
- &#39;gua&#39;: 5.271760949186604,
  &#39;sungguh&#39;: 5.3809602411515955,
- &#39;long&#39;: 7.540444490504968,
+ &#39;gua&#39;: 5.271760949186604,
  &#39;exposure&#39;: 7.945909598613133,
+ &#39;long&#39;: 7.540444490504968,
  &#39;hayo&#39;: 7.945909598613133,
  &#39;saudara&#39;: 7.252762418053187,
+ &#39;hadap&#39;: 6.441832201836859,
  &#39;sunset&#39;: 4.78890917746302,
  &#39;cek&#39;: 6.847297309945023,
- &#39;hadap&#39;: 6.441832201836859,
  &#39;penat&#39;: 5.461002948825133,
  &#39;padu&#39;: 6.2411615063747075,
  &#39;rekreasi&#39;: 4.8323942894027585,
@@ -6768,67 +6735,67 @@
  &#39;suasanax&#39;: 7.540444490504968,
  &#39;minim&#39;: 5.461002948825133,
  &#39;selamat&#39;: 6.441832201836859,
+ &#39;jadi&#39;: 4.767855768265187,
  &#39;kafe&#39;: 6.847297309945023,
  &#39;unjung&#39;: 3.885466588066713,
- &#39;jadi&#39;: 4.767855768265187,
- &#39;olah&#39;: 6.847297309945023,
- &#39;tampil&#39;: 6.336471686179032,
  &#39;imajinasi&#39;: 7.945909598613133,
+ &#39;tampil&#39;: 6.336471686179032,
+ &#39;olah&#39;: 6.847297309945023,
  &#39;lengkap&#39;: 4.308323438886747,
  &#39;bukit&#39;: 3.040634820174703,
  &#39;kapur&#39;: 3.1923194075067682,
  &#39;pikir&#39;: 5.931006578070868,
- &#39;malan&#39;: 7.945909598613133,
  &#39;juang&#39;: 6.693146630117765,
- &#39;nginap&#39;: 7.252762418053187,
- &#39;spbu&#39;: 7.945909598613133,
  &#39;sumenep&#39;: 2.7201629248999315,
- &#39;hutan&#39;: 5.8664680569332965,
- &#39;full&#39;: 6.693146630117765,
- &#39;lewat&#39;: 5.805843435116862,
- &#39;homestay&#39;: 6.847297309945023,
  &#39;lubang&#39;: 6.559615237493242,
+ &#39;full&#39;: 6.693146630117765,
+ &#39;spbu&#39;: 7.945909598613133,
+ &#39;lewat&#39;: 5.805843435116862,
  &#39;sepi&#39;: 4.295251357319394,
- &#39;nice&#39;: 6.074107421711541,
+ &#39;hutan&#39;: 5.8664680569332965,
+ &#39;nginap&#39;: 7.252762418053187,
+ &#39;homestay&#39;: 6.847297309945023,
+ &#39;malan&#39;: 7.945909598613133,
  &#39;jalur&#39;: 5.5035625632439285,
  &#39;letak&#39;: 4.767855768265187,
- &#39;diexplore&#39;: 7.945909598613133,
  &#39;sanggup&#39;: 7.945909598613133,
+ &#39;nice&#39;: 6.074107421711541,
+ &#39;diexplore&#39;: 7.945909598613133,
+ &#39;jarang&#39;: 5.694617800006638,
  &#39;reccomend&#39;: 7.945909598613133,
  &#39;sabar&#39;: 7.252762418053187,
- &#39;jarang&#39;: 5.694617800006638,
  &#39;kesan&#39;: 5.343219913168749,
  &#39;bebatuannya&#39;: 7.945909598613133,
- &#39;naah&#39;: 7.945909598613133,
  &#39;asyiik&#39;: 7.945909598613133,
+ &#39;naah&#39;: 7.945909598613133,
  &#39;mending&#39;: 5.5035625632439285,
  &#39;jangkau&#39;: 4.561519335267358,
  &#39;afa&#39;: 7.945909598613133,
  &#39;ayo&#39;: 6.693146630117765,
  &#39;dingin&#39;: 5.5035625632439285,
  &#39;cepat&#39;: 6.441832201836859,
- &#39;musholla&#39;: 6.074107421711541,
  &#39;htm&#39;: 6.2411615063747075,
- &#39;cari&#39;: 5.1425492177065975,
  &#39;gampang&#39;: 6.559615237493242,
- &#39;jl&#39;: 7.029618866738978,
+ &#39;musholla&#39;: 6.074107421711541,
+ &#39;cari&#39;: 5.1425492177065975,
  &#39;samping&#39;: 6.847297309945023,
+ &#39;jl&#39;: 7.029618866738978,
  &#39;cinta&#39;: 5.3809602411515955,
- &#39;bebek&#39;: 7.029618866738978,
  &#39;sinjai&#39;: 7.540444490504968,
+ &#39;bebek&#39;: 7.029618866738978,
  &#39;simpan&#39;: 5.306852268997874,
  &#39;suka&#39;: 4.033886593184986,
- &#39;top&#39;: 5.748685021276914,
  &#39;sunsetnya&#39;: 7.540444490504968,
+ &#39;top&#39;: 5.748685021276914,
  &#39;langka&#39;: 6.693146630117765,
  &#39;datang&#39;: 5.999999449557819,
  &#39;mash&#39;: 7.540444490504968,
  &#39;milir&#39;: 6.559615237493242,
  &#39;angin&#39;: 5.306852268997874,
- &#39;with&#39;: 7.252762418053187,
  &#39;kantor&#39;: 6.847297309945023,
- &#39;wilayah&#39;: 6.074107421711541,
+ &#39;with&#39;: 7.252762418053187,
  &#39;muara&#39;: 6.441832201836859,
+ &#39;wilayah&#39;: 6.074107421711541,
  &#39;pengin&#39;: 5.083708717683664,
  &#39;tmptnya&#39;: 7.540444490504968,
  &#39;ok&#39;: 5.205069574687932,
@@ -6840,8 +6807,8 @@
  &#39;pelihara&#39;: 6.154150129385077,
  &#39;indanya&#39;: 7.945909598613133,
  &#39;mantapsss&#39;: 7.540444490504968,
- &#39;menimbah&#39;: 7.945909598613133,
  &#39;ilmu&#39;: 6.441832201836859,
+ &#39;menimbah&#39;: 7.945909598613133,
  &#39;puas&#39;: 5.271760949186604,
  &#39;okey&#39;: 7.029618866738978,
  &#39;mantul&#39;: 6.074107421711541,
@@ -6851,22 +6818,22 @@
  &#39;transfer&#39;: 7.540444490504968,
  &#39;tembak&#39;: 7.540444490504968,
  &#39;dunia&#39;: 6.154150129385077,
- &#39;kendara&#39;: 4.707231146448752,
- &#39;perhati&#39;: 5.205069574687932,
  &#39;tua&#39;: 6.441832201836859,
+ &#39;perhati&#39;: 5.205069574687932,
+ &#39;kendara&#39;: 4.707231146448752,
  &#39;logistik&#39;: 7.945909598613133,
  &#39;huhu&#39;: 7.540444490504968,
  &#39;mana&#39;: 5.205069574687932,
  &#39;surut&#39;: 6.441832201836859,
+ &#39;kalah&#39;: 5.548014325814762,
  &#39;pemandanganya&#39;: 7.029618866738978,
  &#39;pesisir&#39;: 6.441832201836859,
- &#39;kalah&#39;: 5.548014325814762,
  &#39;patut&#39;: 5.748685021276914,
- &#39;bumi&#39;: 7.029618866738978,
- &#39;dll&#39;: 5.420180954304877,
- &#39;lestari&#39;: 5.237859397510923,
- &#39;buang&#39;: 5.548014325814762,
  &#39;negeri&#39;: 5.8664680569332965,
+ &#39;buang&#39;: 5.548014325814762,
+ &#39;lestari&#39;: 5.237859397510923,
+ &#39;dll&#39;: 5.420180954304877,
+ &#39;bumi&#39;: 7.029618866738978,
  &#39;danbagus&#39;: 7.945909598613133,
  &#39;rekomend&#39;: 7.252762418053187,
  &#39;asri&#39;: 4.480173695813406,
@@ -6874,62 +6841,62 @@
  &#39;rekomended&#39;: 5.306852268997874,
  &#39;rp&#39;: 5.420180954304877,
  &#39;bawa&#39;: 3.9850964290155546,
- &#39;seru&#39;: 4.78890917746302,
- &#39;mandi&#39;: 4.480173695813406,
- &#39;bus&#39;: 5.999999449557819,
- &#39;rame&#39;: 5.420180954304877,
  &#39;bias&#39;: 7.540444490504968,
+ &#39;mandi&#39;: 4.480173695813406,
  &#39;lahan&#39;: 6.154150129385077,
+ &#39;rame&#39;: 5.420180954304877,
+ &#39;bus&#39;: 5.999999449557819,
+ &#39;seru&#39;: 4.78890917746302,
  &#39;syahdu&#39;: 7.540444490504968,
  &#39;recommended&#39;: 5.205069574687932,
- &#39;sangka&#39;: 6.847297309945023,
- &#39;kagum&#39;: 6.336471686179032,
- &#39;pendam&#39;: 7.945909598613133,
  &#39;permata&#39;: 7.540444490504968,
- &#39;harta&#39;: 7.945909598613133,
  &#39;karun&#39;: 7.945909598613133,
+ &#39;harta&#39;: 7.945909598613133,
+ &#39;sangka&#39;: 6.847297309945023,
+ &#39;pendam&#39;: 7.945909598613133,
+ &#39;kagum&#39;: 6.336471686179032,
  &#39;lepas&#39;: 5.3809602411515955,
- &#39;bibir&#39;: 6.336471686179032,
- &#39;kawasan&#39;: 5.643324505619087,
+ &#39;perintah&#39;: 5.0014706194466925,
  &#39;gencar&#39;: 7.945909598613133,
  &#39;panjang&#39;: 7.029618866738978,
- &#39;perintah&#39;: 5.0014706194466925,
+ &#39;bibir&#39;: 6.336471686179032,
  &#39;pesona&#39;: 5.083708717683664,
+ &#39;kawasan&#39;: 5.643324505619087,
  &#39;milik&#39;: 5.173320876373351,
- &#39;tel&#39;: 7.945909598613133,
- &#39;tenggelam&#39;: 7.540444490504968,
  &#39;kemah&#39;: 6.847297309945023,
+ &#39;korban&#39;: 7.252762418053187,
+ &#39;tenggelam&#39;: 7.540444490504968,
+ &#39;tel&#39;: 7.945909598613133,
+ &#39;boleh&#39;: 6.847297309945023,
+ &#39;medan&#39;: 6.154150129385077,
  &#39;jiwa&#39;: 7.029618866738978,
  &#39;lancar&#39;: 6.847297309945023,
- &#39;medan&#39;: 6.154150129385077,
- &#39;boleh&#39;: 6.847297309945023,
- &#39;korban&#39;: 7.252762418053187,
- &#39;seret&#39;: 7.945909598613133,
- &#39;diterusin&#39;: 7.945909598613133,
  &#39;kristal&#39;: 7.945909598613133,
- &#39;worth&#39;: 5.999999449557819,
- &#39;kalender&#39;: 7.540444490504968,
- &#39;mah&#39;: 6.847297309945023,
+ &#39;diterusin&#39;: 7.945909598613133,
+ &#39;seret&#39;: 7.945909598613133,
  &#39;tenang&#39;: 4.232337531908825,
+ &#39;kalender&#39;: 7.540444490504968,
+ &#39;worth&#39;: 5.999999449557819,
+ &#39;mah&#39;: 6.847297309945023,
  &#39;takut&#39;: 7.029618866738978,
  &#39;panas&#39;: 3.1017225121545415,
  &#39;teduh&#39;: 5.343219913168749,
- &#39;teman&#39;: 4.578613768626659,
  &#39;man&#39;: 7.540444490504968,
- &#39;best&#39;: 5.999999449557819,
- &#39;turns&#39;: 7.945909598613133,
- &#39;kct&#39;: 7.945909598613133,
- &#39;jagat&#39;: 7.945909598613133,
+ &#39;teman&#39;: 4.578613768626659,
  &#39;all&#39;: 6.693146630117765,
- &#39;kbt&#39;: 7.945909598613133,
  &#39;samudera&#39;: 7.540444490504968,
+ &#39;best&#39;: 5.999999449557819,
+ &#39;kct&#39;: 7.945909598613133,
+ &#39;turns&#39;: 7.945909598613133,
+ &#39;jagat&#39;: 7.945909598613133,
+ &#39;kbt&#39;: 7.945909598613133,
  &#39;rusak&#39;: 4.950177325059141,
  &#39;nayam&#39;: 7.945909598613133,
  &#39;mukim&#39;: 7.252762418053187,
- &#39;bangkal&#39;: 4.687813060591651,
  &#39;pantura&#39;: 6.441832201836859,
- &#39;kamar&#39;: 4.8323942894027585,
+ &#39;bangkal&#39;: 4.687813060591651,
  &#39;mushola&#39;: 6.154150129385077,
+ &#39;kamar&#39;: 4.8323942894027585,
  &#39;tengok&#39;: 7.945909598613133,
  &#39;coba&#39;: 5.3809602411515955,
  &#39;tinggal&#39;: 3.8599332860615485,
@@ -6941,30 +6908,30 @@
  &#39;memuaakan&#39;: 7.945909598613133,
  &#39;khawatir&#39;: 6.559615237493242,
  &#39;double&#39;: 7.540444490504968,
- &#39;cinptaan&#39;: 7.945909598613133,
  &#39;mu&#39;: 7.252762418053187,
+ &#39;cinptaan&#39;: 7.945909598613133,
  &#39;ait&#39;: 7.945909598613133,
  &#39;pilih&#39;: 5.694617800006638,
- &#39;bayi&#39;: 7.945909598613133,
- &#39;bungkus&#39;: 7.029618866738978,
  &#39;popok&#39;: 7.945909598613133,
  &#39;mini&#39;: 6.693146630117765,
- &#39;inda&#39;: 7.945909598613133,
+ &#39;bayi&#39;: 7.945909598613133,
+ &#39;bungkus&#39;: 7.029618866738978,
  &#39;selatan&#39;: 7.252762418053187,
- &#39;persis&#39;: 7.252762418053187,
  &#39;barat&#39;: 6.2411615063747075,
+ &#39;inda&#39;: 7.945909598613133,
+ &#39;persis&#39;: 7.252762418053187,
  &#39;very&#39;: 6.847297309945023,
- &#39;daftar&#39;: 7.540444490504968,
- &#39;visiting&#39;: 7.945909598613133,
  &#39;put&#39;: 7.945909598613133,
- &#39;your&#39;: 7.252762418053187,
  &#39;when&#39;: 7.540444490504968,
  &#39;rare&#39;: 7.945909598613133,
- &#39;you&#39;: 7.252762418053187,
+ &#39;your&#39;: 7.252762418053187,
  &#39;list&#39;: 7.945909598613133,
+ &#39;visiting&#39;: 7.945909598613133,
+ &#39;you&#39;: 7.252762418053187,
+ &#39;daftar&#39;: 7.540444490504968,
+ &#39;kiri&#39;: 6.336471686179032,
  &#39;sulit&#39;: 5.643324505619087,
  &#39;kanan&#39;: 6.693146630117765,
- &#39;kiri&#39;: 6.336471686179032,
  &#39;cokelat&#39;: 7.945909598613133,
  &#39;kenal&#39;: 5.205069574687932,
  &#39;fasum&#39;: 7.252762418053187,
@@ -6972,124 +6939,124 @@
  &#39;pakiranya&#39;: 7.945909598613133,
  &#39;batas&#39;: 6.441832201836859,
  &#39;istirahat&#39;: 5.5035625632439285,
- &#39;dari&#39;: 7.945909598613133,
  &#39;terimakasih&#39;: 6.693146630117765,
+ &#39;dari&#39;: 7.945909598613133,
  &#39;terjunx&#39;: 7.945909598613133,
  &#39;recom&#39;: 7.540444490504968,
  &#39;seram&#39;: 6.693146630117765,
  &#39;cuy&#39;: 7.029618866738978,
- &#39;selfie&#39;: 5.055537840716968,
- &#39;henti&#39;: 6.693146630117765,
  &#39;banding&#39;: 6.441832201836859,
+ &#39;henti&#39;: 6.693146630117765,
  &#39;menit&#39;: 5.112696254556917,
+ &#39;selfie&#39;: 5.055537840716968,
  &#39;stres&#39;: 6.2411615063747075,
  &#39;penuh&#39;: 4.877856663479515,
- &#39;mushollanya&#39;: 7.540444490504968,
- &#39;gardu&#39;: 7.945909598613133,
  &#39;ibadah&#39;: 7.252762418053187,
- &#39;penasaran&#39;: 6.336471686179032,
- &#39;bentuk&#39;: 5.1425492177065975,
+ &#39;gardu&#39;: 7.945909598613133,
  &#39;mesti&#39;: 7.029618866738978,
- &#39;mengexplore&#39;: 7.945909598613133,
+ &#39;bentuk&#39;: 5.1425492177065975,
+ &#39;penasaran&#39;: 6.336471686179032,
+ &#39;mushollanya&#39;: 7.540444490504968,
  &#39;juju&#39;: 7.945909598613133,
  &#39;melipir&#39;: 7.540444490504968,
  &#39;kawan&#39;: 7.945909598613133,
+ &#39;mengexplore&#39;: 7.945909598613133,
  &#39;duduk&#39;: 4.877856663479515,
  &#39;kec&#39;: 7.029618866738978,
  &#39;sakobanah&#39;: 7.945909598613133,
  &#39;kab&#39;: 5.8664680569332965,
  &#39;tengah&#39;: 6.2411615063747075,
  &#39;volume&#39;: 7.945909598613133,
- &#39;bentar&#39;: 7.945909598613133,
  &#39;singgah&#39;: 7.029618866738978,
+ &#39;bentar&#39;: 7.945909598613133,
  &#39;potensial&#39;: 6.336471686179032,
- &#39;nyelempit&#39;: 7.945909598613133,
  &#39;bilang&#39;: 5.999999449557819,
- &#39;papan&#39;: 6.336471686179032,
  &#39;warga&#39;: 4.877856663479515,
+ &#39;papan&#39;: 6.336471686179032,
+ &#39;nyelempit&#39;: 7.945909598613133,
  &#39;ajibbbb&#39;: 7.945909598613133,
  &#39;good&#39;: 5.643324505619087,
  &#39;jembatan&#39;: 5.306852268997874,
+ &#39;siap&#39;: 5.931006578070868,
  &#39;bekal&#39;: 6.693146630117765,
- &#39;nanti&#39;: 7.945909598613133,
  &#39;fisik&#39;: 7.945909598613133,
  &#39;suramadu&#39;: 5.112696254556917,
- &#39;siap&#39;: 5.931006578070868,
+ &#39;nanti&#39;: 7.945909598613133,
  &#39;karen&#39;: 7.945909598613133,
  &#39;nyatu&#39;: 7.945909598613133,
- &#39;kerapu&#39;: 7.945909598613133,
  &#39;akal&#39;: 7.945909598613133,
- &#39;sawah&#39;: 6.559615237493242,
+ &#39;kerapu&#39;: 7.945909598613133,
  &#39;irigasi&#39;: 7.945909598613133,
+ &#39;sawah&#39;: 6.559615237493242,
  &#39;airny&#39;: 7.945909598613133,
  &#39;muka&#39;: 6.693146630117765,
  &#39;bercengkrama&#39;: 7.945909598613133,
- &#39;karcis&#39;: 4.810415382683983,
- &#39;waterfall&#39;: 7.540444490504968,
- &#39;jatohnya&#39;: 7.945909598613133,
- &#39;rbu&#39;: 7.252762418053187,
- &#39;krcis&#39;: 7.945909598613133,
  &#39;dpet&#39;: 7.945909598613133,
+ &#39;krcis&#39;: 7.945909598613133,
+ &#39;rbu&#39;: 7.252762418053187,
+ &#39;jatohnya&#39;: 7.945909598613133,
+ &#39;waterfall&#39;: 7.540444490504968,
+ &#39;karcis&#39;: 4.810415382683983,
  &#39;asliiik&#39;: 7.945909598613133,
  &#39;background&#39;: 7.252762418053187,
  &#39;pakai&#39;: 4.390561537123719,
+ &#39;poto&#39;: 6.2411615063747075,
  &#39;kaya&#39;: 7.252762418053187,
  &#39;lautt&#39;: 7.945909598613133,
  &#39;baguuss&#39;: 7.540444490504968,
- &#39;poto&#39;: 6.2411615063747075,
- &#39;kondisi&#39;: 5.1425492177065975,
+ &#39;segi&#39;: 7.252762418053187,
  &#39;tunjang&#39;: 6.847297309945023,
  &#39;malas&#39;: 7.029618866738978,
- &#39;segi&#39;: 7.252762418053187,
- &#39;mantab&#39;: 5.643324505619087,
- &#39;lansia&#39;: 7.945909598613133,
+ &#39;kondisi&#39;: 5.1425492177065975,
  &#39;tolong&#39;: 5.8664680569332965,
+ &#39;lansia&#39;: 7.945909598613133,
+ &#39;mantab&#39;: 5.643324505619087,
  &#39;asyik&#39;: 4.767855768265187,
  &#39;bahaya&#39;: 5.805843435116862,
  &#39;utuh&#39;: 6.559615237493242,
+ &#39;sisa&#39;: 5.748685021276914,
  &#39;saat&#39;: 7.252762418053187,
  &#39;keruk&#39;: 6.559615237493242,
- &#39;sisa&#39;: 5.748685021276914,
  &#39;ditepilaut&#39;: 7.945909598613133,
- &#39;tmpat&#39;: 7.029618866738978,
- &#39;karunia&#39;: 7.945909598613133,
- &#39;luat&#39;: 7.945909598613133,
- &#39;walopun&#39;: 7.540444490504968,
- &#39;prjlnn&#39;: 7.945909598613133,
  &#39;sempurna&#39;: 6.441832201836859,
+ &#39;tmpat&#39;: 7.029618866738978,
+ &#39;luat&#39;: 7.945909598613133,
+ &#39;prjlnn&#39;: 7.945909598613133,
+ &#39;karunia&#39;: 7.945909598613133,
+ &#39;walopun&#39;: 7.540444490504968,
  &#39;sibuk&#39;: 7.252762418053187,
- &#39;akibat&#39;: 6.559615237493242,
  &#39;solusi&#39;: 7.540444490504968,
+ &#39;akibat&#39;: 6.559615237493242,
  &#39;okay&#39;: 7.540444490504968,
  &#39;buat&#39;: 5.083708717683664,
  &#39;max&#39;: 7.540444490504968,
  &#39;jubel&#39;: 7.945909598613133,
  &#39;enggak bisa&#39;: 7.540444490504968,
  &#39;refresing&#39;: 6.559615237493242,
- &#39;seniman&#39;: 7.945909598613133,
  &#39;perawan&#39;: 7.252762418053187,
+ &#39;seniman&#39;: 7.945909598613133,
  &#39;bbrapa&#39;: 7.945909598613133,
  &#39;sne&#39;: 7.945909598613133,
  &#39;wahana&#39;: 5.083708717683664,
- &#39;tuju&#39;: 5.694617800006638,
  &#39;nepah&#39;: 7.945909598613133,
- &#39;wonderful&#39;: 7.540444490504968,
+ &#39;tuju&#39;: 5.694617800006638,
  &#39;amazing&#39;: 5.748685021276914,
+ &#39;wonderful&#39;: 7.540444490504968,
  &#39;e&#39;: 6.336471686179032,
  &#39;elok&#39;: 6.559615237493242,
  &#39;lingkung&#39;: 5.8664680569332965,
- &#39;sunsetnyaa&#39;: 7.945909598613133,
  &#39;ehe&#39;: 7.945909598613133,
  &#39;parah&#39;: 5.805843435116862,
  &#39;gilasih&#39;: 7.945909598613133,
+ &#39;sunsetnyaa&#39;: 7.945909598613133,
  &#39;musholanya&#39;: 7.945909598613133,
  &#39;mantp&#39;: 7.945909598613133,
  &#39;wekend&#39;: 7.945909598613133,
  &#39;alamiah&#39;: 7.945909598613133,
- &#39;kereeennn&#39;: 7.540444490504968,
  &#39;abiiizzz&#39;: 7.945909598613133,
- &#39;bersihdan&#39;: 7.945909598613133,
+ &#39;kereeennn&#39;: 7.540444490504968,
  &#39;rapi&#39;: 5.694617800006638,
+ &#39;bersihdan&#39;: 7.945909598613133,
  &#39;enggak ada&#39;: 6.441832201836859,
  &#39;temapat&#39;: 7.945909598613133,
  &#39;refresh&#39;: 7.252762418053187,
@@ -7097,25 +7064,25 @@
  &#39;hewan&#39;: 7.945909598613133,
  &#39;desir&#39;: 7.945909598613133,
  &#39;untung&#39;: 6.074107421711541,
- &#39;pusat&#39;: 5.548014325814762,
- &#39;hampar&#39;: 5.420180954304877,
- &#39;halus&#39;: 5.748685021276914,
  &#39;lebar&#39;: 6.074107421711541,
+ &#39;hampar&#39;: 5.420180954304877,
  &#39;jauuuuuh&#39;: 7.945909598613133,
+ &#39;halus&#39;: 5.748685021276914,
+ &#39;pusat&#39;: 5.548014325814762,
  &#39;jalannua&#39;: 7.945909598613133,
- &#39;jelek&#39;: 5.694617800006638,
- &#39;lampu&#39;: 5.643324505619087,
- &#39;malam&#39;: 4.5119223941279865,
- &#39;susah&#39;: 5.461002948825133,
  &#39;gelap&#39;: 6.847297309945023,
- &#39;laitnya&#39;: 7.945909598613133,
+ &#39;malam&#39;: 4.5119223941279865,
+ &#39;lampu&#39;: 5.643324505619087,
+ &#39;susah&#39;: 5.461002948825133,
+ &#39;jelek&#39;: 5.694617800006638,
  &#39;debit&#39;: 7.252762418053187,
- &#39;sembarang&#39;: 6.441832201836859,
+ &#39;laitnya&#39;: 7.945909598613133,
  &#39;edukasi&#39;: 5.805843435116862,
+ &#39;sembarang&#39;: 6.441832201836859,
  &#39;coz&#39;: 7.540444490504968,
+ &#39;bujuk&#39;: 7.945909598613133,
  &#39;religi&#39;: 7.252762418053187,
  &#39;nyai&#39;: 7.945909598613133,
- &#39;bujuk&#39;: 7.945909598613133,
  &#39;dewi&#39;: 7.945909598613133,
  &#39;benah&#39;: 5.805843435116862,
  &#39;acara&#39;: 6.2411615063747075,
@@ -7123,48 +7090,48 @@
  &#39;langsug&#39;: 7.945909598613133,
  &#39;identik&#39;: 7.252762418053187,
  &#39;cafenya&#39;: 7.252762418053187,
- &#39;an&#39;: 5.548014325814762,
  &#39;kampung&#39;: 5.343219913168749,
- &#39;heheee&#39;: 7.945909598613133,
+ &#39;an&#39;: 5.548014325814762,
  &#39;otentik&#39;: 7.252762418053187,
+ &#39;heheee&#39;: 7.945909598613133,
  &#39;pungut&#39;: 5.461002948825133,
  &#39;pemandanganx&#39;: 7.945909598613133,
- &#39;uang&#39;: 5.0014706194466925,
  &#39;super&#39;: 6.2411615063747075,
+ &#39;uang&#39;: 5.0014706194466925,
  &#39;twmpat&#39;: 7.945909598613133,
  &#39;gabung&#39;: 7.540444490504968,
  &#39;jung&#39;: 7.252762418053187,
  &#39;gapengen&#39;: 7.945909598613133,
- &#39;indonesia&#39;: 5.594534341449655,
- &#39;explore&#39;: 6.847297309945023,
- &#39;pulang&#39;: 5.461002948825133,
  &#39;suguh&#39;: 5.748685021276914,
- &#39;kecil&#39;: 7.252762418053187,
- &#39;nongkrong&#39;: 6.693146630117765,
+ &#39;pulang&#39;: 5.461002948825133,
+ &#39;explore&#39;: 6.847297309945023,
+ &#39;indonesia&#39;: 5.594534341449655,
  &#39;fotografi&#39;: 6.693146630117765,
+ &#39;nongkrong&#39;: 6.693146630117765,
+ &#39;kecil&#39;: 7.252762418053187,
  &#39;potret&#39;: 6.693146630117765,
- &#39;cenderung&#39;: 6.693146630117765,
  &#39;aspal&#39;: 5.748685021276914,
+ &#39;cenderung&#39;: 6.693146630117765,
  &#39;apik&#39;: 5.931006578070868,
  &#39;pemda&#39;: 6.693146630117765,
  &#39;aset&#39;: 6.693146630117765,
  &#39;tugas&#39;: 5.643324505619087,
- &#39;alas&#39;: 6.847297309945023,
  &#39;mohon&#39;: 5.643324505619087,
+ &#39;alas&#39;: 6.847297309945023,
  &#39;guys&#39;: 6.559615237493242,
- &#39;cuci&#39;: 6.693146630117765,
  &#39;venue&#39;: 7.252762418053187,
- &#39;sunrise&#39;: 6.336471686179032,
+ &#39;cuci&#39;: 6.693146630117765,
  &#39;waisatawan&#39;: 7.945909598613133,
- &#39;papar&#39;: 7.540444490504968,
+ &#39;sunrise&#39;: 6.336471686179032,
  &#39;satuari&#39;: 7.945909598613133,
  &#39;jarak&#39;: 5.8664680569332965,
- &#39;tumbuh&#39;: 6.336471686179032,
+ &#39;papar&#39;: 7.540444490504968,
  &#39;tonton&#39;: 7.540444490504968,
- &#39;sediiiih&#39;: 7.945909598613133,
+ &#39;tumbuh&#39;: 6.336471686179032,
  &#39;ngeri&#39;: 6.847297309945023,
- &#39;tempa&#39;: 7.540444490504968,
  &#39;banjiiir&#39;: 7.945909598613133,
+ &#39;tempa&#39;: 7.540444490504968,
+ &#39;sediiiih&#39;: 7.945909598613133,
  &#39;debur&#39;: 7.029618866738978,
  &#39;gemericik&#39;: 7.945909598613133,
  &#39;syukur&#39;: 6.847297309945023,
@@ -7183,8 +7150,8 @@
  &#39;beri&#39;: 7.252762418053187,
  &#39;tmpatnya&#39;: 7.252762418053187,
  &#39;kerawat&#39;: 7.540444490504968,
- &#39;mang&#39;: 7.540444490504968,
  &#39;kuasa&#39;: 7.029618866738978,
+ &#39;mang&#39;: 7.540444490504968,
  &#39;garap&#39;: 7.945909598613133,
  &#39;temapatnya&#39;: 7.945909598613133,
  &#39;sekaliy&#39;: 7.945909598613133,
@@ -7192,67 +7159,67 @@
  &#39;instagramable&#39;: 4.78890917746302,
  &#39;surabaya&#39;: 5.055537840716968,
  &#39;sekitar&#39;: 6.154150129385077,
- &#39;dalam&#39;: 5.5035625632439285,
- &#39;sarung&#39;: 7.540444490504968,
- &#39;alquran&#39;: 7.540444490504968,
- &#39;mukena&#39;: 7.540444490504968,
- &#39;alat&#39;: 5.931006578070868,
  &#39;sholat&#39;: 7.540444490504968,
- &#39;anggap&#39;: 7.945909598613133,
+ &#39;alquran&#39;: 7.540444490504968,
+ &#39;dalam&#39;: 5.5035625632439285,
+ &#39;mukena&#39;: 7.540444490504968,
+ &#39;sarung&#39;: 7.540444490504968,
+ &#39;alat&#39;: 5.931006578070868,
  &#39;cemar&#39;: 7.540444490504968,
- &#39;dekat&#39;: 6.074107421711541,
  &#39;tanah&#39;: 6.154150129385077,
- &#39;payment&#39;: 7.945909598613133,
+ &#39;dekat&#39;: 6.074107421711541,
+ &#39;anggap&#39;: 7.945909598613133,
  &#39;bagu&#39;: 7.945909598613133,
  &#39;danga&#39;: 7.945909598613133,
+ &#39;payment&#39;: 7.945909598613133,
  &#39;liar&#39;: 5.805843435116862,
  &#39;inspirasi&#39;: 7.540444490504968,
  &#39;buru&#39;: 7.252762418053187,
- &#39;days&#39;: 7.945909598613133,
- &#39;everywhere&#39;: 7.540444490504968,
- &#39;there&#39;: 7.540444490504968,
- &#39;still&#39;: 7.540444490504968,
- &#39;quite&#39;: 7.945909598613133,
- &#39;meet&#39;: 7.945909598613133,
- &#39;is&#39;: 6.693146630117765,
- &#39;now&#39;: 7.540444490504968,
  &#39;that&#39;: 7.945909598613133,
- &#39;local&#39;: 7.945909598613133,
- &#39;this&#39;: 7.945909598613133,
- &#39;but&#39;: 7.029618866738978,
- &#39;trash&#39;: 7.540444490504968,
- &#39;really&#39;: 7.945909598613133,
- &#39;actually&#39;: 7.540444490504968,
  &#39;and&#39;: 6.441832201836859,
- &#39;tourist&#39;: 7.540444490504968,
- &#39;directly&#39;: 7.945909598613133,
- &#39;even&#39;: 7.252762418053187,
+ &#39;there&#39;: 7.540444490504968,
  &#39;by&#39;: 7.945909598613133,
- &#39;crowded&#39;: 7.945909598613133,
+ &#39;still&#39;: 7.540444490504968,
+ &#39;local&#39;: 7.945909598613133,
+ &#39;days&#39;: 7.945909598613133,
+ &#39;even&#39;: 7.252762418053187,
  &#39;small&#39;: 7.945909598613133,
+ &#39;everywhere&#39;: 7.540444490504968,
+ &#39;quite&#39;: 7.945909598613133,
+ &#39;now&#39;: 7.540444490504968,
+ &#39;this&#39;: 7.945909598613133,
  &#39;many&#39;: 7.945909598613133,
+ &#39;actually&#39;: 7.540444490504968,
+ &#39;but&#39;: 7.029618866738978,
+ &#39;directly&#39;: 7.945909598613133,
+ &#39;really&#39;: 7.945909598613133,
+ &#39;trash&#39;: 7.540444490504968,
+ &#39;meet&#39;: 7.945909598613133,
  &#39;looks&#39;: 7.945909598613133,
+ &#39;is&#39;: 6.693146630117765,
+ &#39;tourist&#39;: 7.540444490504968,
+ &#39;crowded&#39;: 7.945909598613133,
  &#39;uni&#39;: 6.847297309945023,
  &#39;sambut&#39;: 7.252762418053187,
  &#39;standar&#39;: 6.559615237493242,
+ &#39;eh&#39;: 6.847297309945023,
+ &#39;rekom&#39;: 6.847297309945023,
  &#39;maja&#39;: 7.540444490504968,
  &#39;iya&#39;: 6.693146630117765,
- &#39;rekom&#39;: 6.847297309945023,
- &#39;eh&#39;: 6.847297309945023,
  &#39;tutup&#39;: 5.205069574687932,
  &#39;buka&#39;: 5.083708717683664,
  &#39;mampir&#39;: 5.548014325814762,
  &#39;tepat&#39;: 5.748685021276914,
- &#39;perut&#39;: 7.945909598613133,
  &#39;isi&#39;: 5.643324505619087,
- &#39;suara&#39;: 6.559615237493242,
+ &#39;perut&#39;: 7.945909598613133,
  &#39;gemuruh&#39;: 7.945909598613133,
+ &#39;suara&#39;: 6.559615237493242,
  &#39;fresh&#39;: 7.252762418053187,
  &#39;eksploitasi&#39;: 7.252762418053187,
  &#39;hubung&#39;: 6.847297309945023,
  &#39;scenery&#39;: 7.540444490504968,
- &#39;adrenaline&#39;: 7.540444490504968,
  &#39;picu&#39;: 7.945909598613133,
+ &#39;adrenaline&#39;: 7.540444490504968,
  &#39;prasarana&#39;: 6.441832201836859,
  &#39;hihi&#39;: 7.945909598613133,
  &#39;maju&#39;: 6.074107421711541,
@@ -7261,34 +7228,34 @@
  &#39;landscaper&#39;: 7.945909598613133,
  &#39;mania&#39;: 7.540444490504968,
  &#39;nilai&#39;: 5.931006578070868,
- &#39;geografis&#39;: 7.540444490504968,
- &#39;travellers&#39;: 7.945909598613133,
  &#39;daya&#39;: 6.847297309945023,
+ &#39;geografis&#39;: 7.540444490504968,
  &#39;mumpuni&#39;: 7.540444490504968,
- &#39;apa&#39;: 6.847297309945023,
- &#39;takdir&#39;: 7.945909598613133,
- &#39;btw&#39;: 7.540444490504968,
- &#39;ku&#39;: 7.029618866738978,
- &#39;langit&#39;: 6.847297309945023,
- &#39;hhiks&#39;: 7.945909598613133,
+ &#39;travellers&#39;: 7.945909598613133,
  &#39;kemarin&#39;: 5.420180954304877,
+ &#39;langit&#39;: 6.847297309945023,
  &#39;sabtu&#39;: 7.945909598613133,
+ &#39;hhiks&#39;: 7.945909598613133,
+ &#39;apa&#39;: 6.847297309945023,
+ &#39;ku&#39;: 7.029618866738978,
+ &#39;btw&#39;: 7.540444490504968,
+ &#39;takdir&#39;: 7.945909598613133,
  &#39;lelah&#39;: 6.074107421711541,
- &#39;tenda&#39;: 6.154150129385077,
  &#39;diri&#39;: 5.805843435116862,
+ &#39;tenda&#39;: 6.154150129385077,
  &#39;rute&#39;: 6.693146630117765,
  &#39;bangga&#39;: 6.2411615063747075,
  &#39;hadir&#39;: 7.945909598613133,
  &#39;cuaca&#39;: 4.767855768265187,
  &#39;biar&#39;: 7.540444490504968,
  &#39;uras&#39;: 6.847297309945023,
- &#39;tenaga&#39;: 7.029618866738978,
  &#39;spotnya&#39;: 6.693146630117765,
+ &#39;tenaga&#39;: 7.029618866738978,
  &#39;haha&#39;: 6.847297309945023,
- &#39;larang&#39;: 7.029618866738978,
  &#39;pancing&#39;: 7.029618866738978,
- &#39;tampak&#39;: 6.847297309945023,
+ &#39;larang&#39;: 7.029618866738978,
  &#39;nelayan&#39;: 7.252762418053187,
+ &#39;tampak&#39;: 6.847297309945023,
  &#39;ciprat&#39;: 7.945909598613133,
  &#39;v&#39;: 7.252762418053187,
  &#39;bro&#39;: 6.847297309945023,
@@ -7297,8 +7264,8 @@
  &#39;inti&#39;: 7.540444490504968,
  &#39;nyemplung&#39;: 7.945909598613133,
  &#39;turjun&#39;: 7.945909598613133,
- &#39;niagara&#39;: 7.945909598613133,
  &#39;kau&#39;: 7.540444490504968,
+ &#39;niagara&#39;: 7.945909598613133,
  &#39;gelombang&#39;: 6.2411615063747075,
  &#39;seruuuu&#39;: 7.945909598613133,
  &#39;tahap&#39;: 6.154150129385077,
@@ -7315,28 +7282,28 @@
  &#39;besar&#39;: 7.252762418053187,
  &#39;lanskap&#39;: 7.540444490504968,
  &#39;yerjun&#39;: 7.945909598613133,
- &#39;hidang&#39;: 7.029618866738978,
  &#39;lezat&#39;: 7.945909598613133,
+ &#39;hidang&#39;: 7.029618866738978,
  &#39;sunyi&#39;: 6.693146630117765,
  &#39;ups&#39;: 7.540444490504968,
  &#39;ruang&#39;: 6.847297309945023,
- &#39;google&#39;: 5.999999449557819,
  &#39;buruk&#39;: 6.441832201836859,
- &#39;korea&#39;: 7.540444490504968,
- &#39;jeju&#39;: 7.945909598613133,
+ &#39;google&#39;: 5.999999449557819,
  &#39;nusantara&#39;: 7.029618866738978,
+ &#39;jeju&#39;: 7.945909598613133,
+ &#39;korea&#39;: 7.540444490504968,
  &#39;bodoh&#39;: 7.945909598613133,
+ &#39;tebu&#39;: 7.945909598613133,
+ &#39;cium&#39;: 7.540444490504968,
  &#39;limbah&#39;: 7.540444490504968,
  &#39;bau&#39;: 6.441832201836859,
- &#39;cium&#39;: 7.540444490504968,
- &#39;tebu&#39;: 7.945909598613133,
  &#39;sedap&#39;: 7.029618866738978,
  &#39;cellep&#39;: 7.945909598613133,
  &#39;kennengennah&#39;: 7.945909598613133,
  &#39;alangkah&#39;: 7.252762418053187,
  &#39;sesap&#39;: 7.540444490504968,
- &#39;info&#39;: 6.2411615063747075,
  &#39;musin&#39;: 7.945909598613133,
+ &#39;info&#39;: 6.2411615063747075,
  &#39;kontrak&#39;: 7.945909598613133,
  &#39;senanng&#39;: 7.945909598613133,
  &#39;bahagia&#39;: 7.029618866738978,
@@ -7384,7 +7351,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-e5a2bc43-d614-43c2-9b27-bff83bb5f770" class="colab-df-container">
+  <div id="df-d674fbba-b66f-4832-9ebb-2ee785f53a29" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -7698,7 +7665,7 @@
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-e5a2bc43-d614-43c2-9b27-bff83bb5f770')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d674fbba-b66f-4832-9ebb-2ee785f53a29')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -7750,12 +7717,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-e5a2bc43-d614-43c2-9b27-bff83bb5f770 button.colab-df-convert');
+        document.querySelector('#df-d674fbba-b66f-4832-9ebb-2ee785f53a29 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-e5a2bc43-d614-43c2-9b27-bff83bb5f770');
+        const element = document.querySelector('#df-d674fbba-b66f-4832-9ebb-2ee785f53a29');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -7775,8 +7742,8 @@
   </div>
 
 
-<div id="df-c21ccde5-1586-430a-9c85-5e3eebf756de">
-  <button class="colab-df-quickchart" onclick="quickchart('df-c21ccde5-1586-430a-9c85-5e3eebf756de')"
+<div id="df-c2ba0da9-903e-4b4f-a34e-2af75db647a6">
+  <button class="colab-df-quickchart" onclick="quickchart('df-c2ba0da9-903e-4b4f-a34e-2af75db647a6')"
             title="Suggest charts"
             style="display:none;">
 
@@ -7895,14 +7862,14 @@
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-c21ccde5-1586-430a-9c85-5e3eebf756de button');
+        document.querySelector('#df-c2ba0da9-903e-4b4f-a34e-2af75db647a6 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_a16c3c3d-370f-4e60-8116-f288234d4e07">
+  <div id="id_f8c0bcdb-db78-4711-982f-8f8e6b6acc44">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -7946,7 +7913,7 @@
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_a16c3c3d-370f-4e60-8116-f288234d4e07 button.colab-df-generate');
+        document.querySelector('#id_f8c0bcdb-db78-4711-982f-8f8e6b6acc44 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -7971,7 +7938,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-01b42a1a-91bf-4dec-b94c-972a8687a3c5" class="colab-df-container">
+  <div id="df-60b5861a-4817-42e5-aa63-f4c359bf194b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -8285,7 +8252,7 @@
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-01b42a1a-91bf-4dec-b94c-972a8687a3c5')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-60b5861a-4817-42e5-aa63-f4c359bf194b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -8337,12 +8304,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-01b42a1a-91bf-4dec-b94c-972a8687a3c5 button.colab-df-convert');
+        document.querySelector('#df-60b5861a-4817-42e5-aa63-f4c359bf194b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-01b42a1a-91bf-4dec-b94c-972a8687a3c5');
+        const element = document.querySelector('#df-60b5861a-4817-42e5-aa63-f4c359bf194b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -8362,8 +8329,8 @@
   </div>
 
 
-<div id="df-68efab19-d05a-4b4b-ab5a-03099e4f3924">
-  <button class="colab-df-quickchart" onclick="quickchart('df-68efab19-d05a-4b4b-ab5a-03099e4f3924')"
+<div id="df-6a6ae6ad-b31b-403e-a180-0e8a7786a327">
+  <button class="colab-df-quickchart" onclick="quickchart('df-6a6ae6ad-b31b-403e-a180-0e8a7786a327')"
             title="Suggest charts"
             style="display:none;">
 
@@ -8482,14 +8449,14 @@
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-68efab19-d05a-4b4b-ab5a-03099e4f3924 button');
+        document.querySelector('#df-6a6ae6ad-b31b-403e-a180-0e8a7786a327 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_b4fe7dd9-c7ed-48aa-be05-cdf29472d29a">
+  <div id="id_83340d2d-4f5a-4e2d-83cc-378c4a5f704f">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -8533,7 +8500,7 @@
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_b4fe7dd9-c7ed-48aa-be05-cdf29472d29a button.colab-df-generate');
+        document.querySelector('#id_83340d2d-4f5a-4e2d-83cc-378c4a5f704f button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -8563,731 +8530,32 @@
 </div>
 </div>
 </section>
-<section id="smote">
-<h2>Smote<a class="headerlink" href="#smote" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Sentimen&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-<span class="n">ay</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">autopct</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">grafik</span> <span class="o">=</span> <span class="n">ay</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;BEFORE SMOTE&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sentimen
-Positif    4209
-Negatif    1049
-Netral      390
-Name: count, dtype: int64
-</pre></div>
-</div>
-<img alt="_images/34456a2ea6c4c78613d0f0c23889902cd74a5fb34bcd7a12a3a25d7919783950.png" src="_images/34456a2ea6c4c78613d0f0c23889902cd74a5fb34bcd7a12a3a25d7919783950.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">imblearn.over_sampling</span> <span class="kn">import</span> <span class="n">SMOTE</span>
-<span class="n">smote</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">X_resampled</span><span class="p">,</span> <span class="n">y_resampled</span> <span class="o">=</span> <span class="n">smote</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">tfidf</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-<span class="c1"># Menampilkan distribusi kelas setelah oversampling</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_resampled</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-
-<span class="n">ax</span> <span class="o">=</span> <span class="n">y_resampled</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">grafik</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;SMOTE RESULT&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sentimen
-Positif    4209
-Negatif    4209
-Netral     4209
-Name: count, dtype: int64
-</pre></div>
-</div>
-<img alt="_images/88c1a86cdc044dca2ec1c80cb5ac036dff649b0e0f6912e917dfd240ea028965.png" src="_images/88c1a86cdc044dca2ec1c80cb5ac036dff649b0e0f6912e917dfd240ea028965.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_resampled</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Sentimen</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Positif</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Positif</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Positif</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Positif</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Negatif</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>12622</th>
-      <td>Netral</td>
-    </tr>
-    <tr>
-      <th>12623</th>
-      <td>Netral</td>
-    </tr>
-    <tr>
-      <th>12624</th>
-      <td>Netral</td>
-    </tr>
-    <tr>
-      <th>12625</th>
-      <td>Netral</td>
-    </tr>
-    <tr>
-      <th>12626</th>
-      <td>Netral</td>
-    </tr>
-  </tbody>
-</table>
-<p>12627 rows × 1 columns</p>
-</div><br><label><b>dtype:</b> object</label></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_resampled</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-7d123d48-ca2e-41d0-adb9-14bf91a8a936" class="colab-df-container">
-    <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>air</th>
-      <th>terjun</th>
-      <th>bagus</th>
-      <th>tiket</th>
-      <th>masuk</th>
-      <th>murah</th>
-      <th>ribu</th>
-      <th>orang</th>
-      <th>jernih</th>
-      <th>langsung</th>
-      <th>...</th>
-      <th>tema</th>
-      <th>pertama</th>
-      <th>mamtap</th>
-      <th>bosqu</th>
-      <th>pakong</th>
-      <th>vroh</th>
-      <th>samale</th>
-      <th>serru</th>
-      <th>jenius</th>
-      <th>siiiip</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.364937</td>
-      <td>0.448841</td>
-      <td>0.089870</td>
-      <td>0.234462</td>
-      <td>0.189651</td>
-      <td>0.264101</td>
-      <td>0.271627</td>
-      <td>0.238982</td>
-      <td>0.337645</td>
-      <td>0.289578</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.232232</td>
-      <td>0.285626</td>
-      <td>0.114380</td>
-      <td>0.000000</td>
-      <td>0.241375</td>
-      <td>0.000000</td>
-      <td>0.691414</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>1.258178</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.232232</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>12622</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.088701</td>
-      <td>0.000000</td>
-      <td>0.018476</td>
-      <td>0.000000</td>
-      <td>0.241633</td>
-      <td>0.637780</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>12623</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>12624</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>12625</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.003421</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>12626</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.018195</td>
-      <td>0.000000</td>
-      <td>0.038397</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>12627 rows × 4216 columns</p>
-</div>
-    <div class="colab-df-buttons">
-
-  <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-7d123d48-ca2e-41d0-adb9-14bf91a8a936')"
-            title="Convert this dataframe to an interactive table."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
-    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
-  </svg>
-    </button>
-
-  <style>
-    .colab-df-container {
-      display:flex;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    .colab-df-buttons div {
-      margin-bottom: 4px;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-    <script>
-      const buttonEl =
-        document.querySelector('#df-7d123d48-ca2e-41d0-adb9-14bf91a8a936 button.colab-df-convert');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      async function convertToInteractive(key) {
-        const element = document.querySelector('#df-7d123d48-ca2e-41d0-adb9-14bf91a8a936');
-        const dataTable =
-          await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                    [key], {});
-        if (!dataTable) return;
-
-        const docLinkHtml = 'Like what you see? Visit the ' +
-          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-          + ' to learn more about interactive tables.';
-        element.innerHTML = '';
-        dataTable['output_type'] = 'display_data';
-        await google.colab.output.renderOutput(dataTable, element);
-        const docLink = document.createElement('div');
-        docLink.innerHTML = docLinkHtml;
-        element.appendChild(docLink);
-      }
-    </script>
-  </div>
-
-
-<div id="df-455ffcc7-1336-44a8-9b32-8522c81ee39e">
-  <button class="colab-df-quickchart" onclick="quickchart('df-455ffcc7-1336-44a8-9b32-8522c81ee39e')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-455ffcc7-1336-44a8-9b32-8522c81ee39e button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
-
-  <div id="id_1892d079-7f55-4db1-bbb2-9fc9964cba44">
-    <style>
-      .colab-df-generate {
-        background-color: #E8F0FE;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        display: none;
-        fill: #1967D2;
-        height: 32px;
-        padding: 0 0 0 0;
-        width: 32px;
-      }
-
-      .colab-df-generate:hover {
-        background-color: #E2EBFA;
-        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-        fill: #174EA6;
-      }
-
-      [theme=dark] .colab-df-generate {
-        background-color: #3B4455;
-        fill: #D2E3FC;
-      }
-
-      [theme=dark] .colab-df-generate:hover {
-        background-color: #434B5C;
-        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-        fill: #FFFFFF;
-      }
-    </style>
-    <button class="colab-df-generate" onclick="generateWithVariable('X_resampled')"
-            title="Generate code using this dataframe."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
-  </svg>
-    </button>
-    <script>
-      (() => {
-      const buttonEl =
-        document.querySelector('#id_1892d079-7f55-4db1-bbb2-9fc9964cba44 button.colab-df-generate');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      buttonEl.onclick = () => {
-        google.colab.notebook.generateWithVariable('X_resampled');
-      }
-      })();
-    </script>
-  </div>
-
-    </div>
-  </div>
-</div></div>
-</div>
-</section>
 <section id="split-data">
 <h2>Split Data<a class="headerlink" href="#split-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membagi Data Menjadi Training dan Testing</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_resampled</span><span class="p">,</span> <span class="n">y_resampled</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tfidf</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Sentimen&#39;</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;training size </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Testing size </span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>training size (10101, 4216)
-Testing size (2526, 4216)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>training size (4518, 4216)
+Testing size (1130, 4216)
 </pre></div>
 </div>
 </div>
@@ -9295,6 +8563,51 @@ Testing size (2526, 4216)
 </section>
 <section id="modelling">
 <h2>Modelling<a class="headerlink" href="#modelling" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">DecisionTreeRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">MultinomialNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RandomizedSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">plot_tree</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # modelc50 = DecisionTreeClassifier(criterion=&#39;entropy&#39;, max_depth=3)</span>
+<span class="c1"># modelc50 = DecisionTreeClassifier(criterion=&quot;entropy&quot;, min_samples_split=75, max_leaf_nodes=5)</span>
+<span class="c1"># modelc50.fit(X_train_resampled, y_train_resampled)</span>
+<span class="c1"># tree.plot_tree(modelc50)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Model training</span>
@@ -9334,7 +8647,7 @@ Testing size (2526, 4216)
     <span class="n">modelc50</span><span class="o">.</span><span class="n">recall</span> <span class="o">=</span> <span class="n">recall</span>
     <span class="n">modelc50</span><span class="o">.</span><span class="n">f1</span> <span class="o">=</span> <span class="n">f1</span>
 
-    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">modelc50</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/SMOTE/model_C50</span><span class="si">{</span><span class="n">temp_for_joblib</span><span class="si">}</span><span class="s1">.joblib&#39;</span><span class="p">)</span>
+    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">modelc50</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/NON BALANCE/model_C50</span><span class="si">{</span><span class="n">temp_for_joblib</span><span class="si">}</span><span class="s1">.joblib&#39;</span><span class="p">)</span>
 
     <span class="n">model_accuracy_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy</span><span class="p">)</span>
     <span class="n">model_precision_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precision</span><span class="p">)</span>
@@ -9361,7 +8674,7 @@ Testing size (2526, 4216)
 
 <span class="n">nilai_maksimum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">model_accuracy_scores</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">indeks_maksimum</span> <span class="o">=</span> <span class="n">model_accuracy_scores</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">nilai_maksimum</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
-<span class="n">modelc50</span><span class="o">=</span><span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/SMOTE/model_C50</span><span class="si">{</span><span class="n">indeks_maksimum</span><span class="si">}</span><span class="s1">.joblib&#39;</span><span class="p">)</span>
+<span class="n">modelc50</span><span class="o">=</span><span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/NON BALANCE/model_C50</span><span class="si">{</span><span class="n">indeks_maksimum</span><span class="si">}</span><span class="s1">.joblib&#39;</span><span class="p">)</span>
 
 <span class="c1"># Evaluasi model pada data testing</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Evaluasi pada data Testing:&quot;</span><span class="p">)</span>
@@ -9404,98 +8717,62 @@ Testing size (2526, 4216)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Evaluasi K-Fold Cross Validation:
 K-Fold 1:
-  Accuracy:  86.24%
-  Precision: 86.35%
-  Recall:    86.18%
-  F1-Score:  86.24%
+  Accuracy:  75.22%
+  Precision: 53.15%
+  Recall:    47.04%
+  F1-Score:  48.73%
 K-Fold 2:
-  Accuracy:  86.09%
-  Precision: 86.18%
-  Recall:    86.07%
-  F1-Score:  86.12%
+  Accuracy:  73.23%
+  Precision: 49.41%
+  Recall:    48.27%
+  F1-Score:  48.78%
 K-Fold 3:
-  Accuracy:  86.78%
-  Precision: 87.07%
-  Recall:    86.84%
-  F1-Score:  86.91%
+  Accuracy:  71.02%
+  Precision: 52.16%
+  Recall:    47.80%
+  F1-Score:  49.07%
 K-Fold 4:
-  Accuracy:  87.23%
-  Precision: 87.47%
-  Recall:    87.28%
-  F1-Score:  87.35%
+  Accuracy:  74.75%
+  Precision: 56.99%
+  Recall:    50.87%
+  F1-Score:  53.09%
 K-Fold 5:
-  Accuracy:  86.29%
-  Precision: 86.14%
-  Recall:    86.07%
-  F1-Score:  86.05%
+  Accuracy:  73.98%
+  Precision: 53.46%
+  Recall:    50.80%
+  F1-Score:  51.88%
 
 Rata-rata Evaluasi dari semua fold:
-Rata-rata Accuracy:  86.53%
-Rata-rata Precision: 86.64%
-Rata-rata Recall:    86.49%
-Rata-rata F1-Score:  86.54%
+Rata-rata Accuracy:  73.64%
+Rata-rata Precision: 53.03%
+Rata-rata Recall:    48.96%
+Rata-rata F1-Score:  50.31%
 
 Evaluasi pada data Testing:
-Accuracy:  86.14%
-Precision: 86.62%
-Recall:    86.25%
-F1-Score:  86.39%
+Accuracy:  74.69%
+Precision: 52.36%
+Recall:    49.26%
+F1-Score:  50.50%
 Classification Report:
               precision    recall  f1-score   support
 
-     Negatif       0.87      0.84      0.86       868
-      Netral       0.94      0.90      0.92       794
-     Positif       0.79      0.84      0.82       864
+     Negatif       0.52      0.45      0.48       217
+      Netral       0.23      0.16      0.19        62
+     Positif       0.82      0.86      0.84       851
 
-    accuracy                           0.86      2526
-   macro avg       0.87      0.86      0.86      2526
-weighted avg       0.86      0.86      0.86      2526
+    accuracy                           0.75      1130
+   macro avg       0.52      0.49      0.50      1130
+weighted avg       0.73      0.75      0.74      1130
 </pre></div>
 </div>
-<img alt="_images/0deb8ee2736f6cd16a96dbfe56085ea95ece7e93818b38582e4aba2f17486e88.png" src="_images/0deb8ee2736f6cd16a96dbfe56085ea95ece7e93818b38582e4aba2f17486e88.png" />
+<img alt="_images/579b09b148fc4d26abea5a175db197018559c11088a0ddcfe16df22449323e93.png" src="_images/579b09b148fc4d26abea5a175db197018559c11088a0ddcfe16df22449323e93.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Confusion Matrix:
-[[733  13 122]
- [  7 715  72]
- [103  33 728]]
-waktu komputasi modelling =  22.3 secs   2.5 MByte
+[[ 98   3 116]
+ [  6  10  46]
+ [ 85  30 736]]
+waktu komputasi modelling =  16.1 secs   1.1 MByte
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;accuracy_scores&quot;</span><span class="p">:</span><span class="n">model_accuracy_scores</span><span class="p">,</span>
-    <span class="s2">&quot;precision_scores&quot;</span><span class="p">:</span><span class="n">model_precision_scores</span><span class="p">,</span>
-    <span class="s2">&quot;recall_scores&quot;</span><span class="p">:</span><span class="n">model_recall_scores</span><span class="p">,</span>
-    <span class="s2">&quot;f1_scores&quot;</span><span class="p">:</span><span class="n">model_f1_scores</span>
-
-<span class="p">}</span>
-
-<span class="n">plotdata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">c</span><span class="p">,</span>
-    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;K=1&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;K=2&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;K=3&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;K=4&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;K=5&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Rata-rata&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Data Uji&quot;</span><span class="p">])</span>
-
-<span class="n">plotdata</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;C5.0 - Gain Ratio Threshold Model&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;K-Fold Cross Validation&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;persentase (%)&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;persentase (%)&#39;)
-</pre></div>
-</div>
-<img alt="_images/21a1c584ecf1887733ca2dcbe12ec099d64bed7d7a90b0641f4d6008ed274e30.png" src="_images/21a1c584ecf1887733ca2dcbe12ec099d64bed7d7a90b0641f4d6008ed274e30.png" />
 </div>
 </div>
 </section>
@@ -9503,40 +8780,46 @@ waktu komputasi modelling =  22.3 secs   2.5 MByte
 <h2>Gain Ratio<a class="headerlink" href="#gain-ratio" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Memeriksa apakah semua fitur numerik. Jika tidak, harus dikonversi.</span>
-<span class="c1"># if not all([pd.api.types.is_numeric_dtype(X_train[col]) for col in X_train.columns]):</span>
-<span class="c1">#     X_train = pd.get_dummies(X_train)</span>
-<span class="c1">#     X_test = pd.get_dummies(X_test)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Memeriksa apakah semua fitur numerik. Jika tidak, harus dikonversi.</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">]):</span>
+    <span class="n">X_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+    <span class="n">X_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
-<span class="c1">#     # Menyamakan kolom antara X_train dan X_test setelah One-Hot Encoding</span>
-<span class="c1">#     X_train, X_test = X_train.align(X_test, join=&#39;left&#39;, axis=1, fill_value=0)</span>
+    <span class="c1"># Menyamakan kolom antara X_train dan X_test setelah One-Hot Encoding</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">align</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="c1"># # Mengonversi label ke numerik jika belum dalam bentuk numerik</span>
-<span class="c1"># label_encoder = LabelEncoder()</span>
-<span class="c1"># y_train_encoded = label_encoder.fit_transform(y_train)</span>
-<span class="c1"># y_test_encoded = label_encoder.transform(y_test)  # Juga mengonversi y_test</span>
+<span class="c1"># Mengonversi label ke numerik jika belum dalam bentuk numerik</span>
+<span class="n">label_encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">y_train_encoded</span> <span class="o">=</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_test_encoded</span> <span class="o">=</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>  <span class="c1"># Juga mengonversi y_test</span>
 
-<span class="c1"># # Fungsi untuk menghitung Gain Ratio</span>
-<span class="c1"># def calculate_gain_ratio(X, y):</span>
-<span class="c1">#     # Menghitung mutual information (serupa dengan informasi gain)</span>
-<span class="c1">#     mutual_info = mutual_info_classif(X, y,random_state=42, discrete_features=False)</span>
-<span class="c1">#     # Menghitung entropy dari label</span>
-<span class="c1">#     entropy_y = -np.sum([p * np.log2(p) for p in np.bincount(y) / len(y)])</span>
-<span class="c1">#     # Menghitung Gain Ratio</span>
-<span class="c1">#     gain_ratio = mutual_info / entropy_y</span>
-<span class="c1">#     return gain_ratio</span>
+<span class="c1"># Fungsi untuk menghitung Gain Ratio</span>
+<span class="k">def</span> <span class="nf">calculate_gain_ratio</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="c1"># Menghitung mutual information (serupa dengan informasi gain)</span>
+    <span class="n">mutual_info</span> <span class="o">=</span> <span class="n">mutual_info_classif</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">discrete_features</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># Menghitung entropy dari label</span>
+    <span class="n">entropy_y</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">p</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)])</span>
+    <span class="c1"># Menghitung Gain Ratio</span>
+    <span class="n">gain_ratio</span> <span class="o">=</span> <span class="n">mutual_info</span> <span class="o">/</span> <span class="n">entropy_y</span>
+    <span class="k">return</span> <span class="n">gain_ratio</span>
 
-<span class="c1"># # Menghitung Gain Ratio untuk setiap fitur</span>
-<span class="c1"># gain_ratios = calculate_gain_ratio(X_train, y_train_encoded)</span>
+<span class="c1"># Menghitung Gain Ratio untuk setiap fitur</span>
+<span class="n">gain_ratios</span> <span class="o">=</span> <span class="n">calculate_gain_ratio</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train_encoded</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd_gain_ratios</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/Textmining/metode/DATA/PREPROCESSING/gain_ratios.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pd_gain_ratios.to_csv(&quot;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/NON BALANCE/gain_ratios.csv&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd_gain_ratios</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/NON BALANCE/gain_ratios.csv&#39;</span><span class="p">)</span>
 <span class="n">pd_gain_ratios</span><span class="o">=</span><span class="n">pd_gain_ratios</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">)</span>
-<span class="c1"># pd_gain_ratios</span>
 </pre></div>
 </div>
 </div>
@@ -13901,7 +13184,7 @@ siiiip : 0.0
     <span class="n">modelc50</span><span class="o">.</span><span class="n">f1</span><span class="o">=</span><span class="n">f1</span>
 
 
-    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">modelc50</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/SMOTE/mean_C50_</span><span class="si">{</span><span class="n">temp_for_joblib</span><span class="si">}</span><span class="s1">.joblib&#39;</span><span class="p">)</span>
+    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">modelc50</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/NON BALANCE/mean_C50_</span><span class="si">{</span><span class="n">temp_for_joblib</span><span class="si">}</span><span class="s1">.joblib&#39;</span><span class="p">)</span>
     <span class="c1"># Simpan metrik evaluasi</span>
     <span class="n">mean_accuracy_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy</span><span class="p">)</span>
     <span class="n">mean_precision_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precision</span><span class="p">)</span>
@@ -13931,7 +13214,7 @@ siiiip : 0.0
 <span class="n">nilai_maksimum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">model_accuracy_scores</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="c1"># indeks_maksimum = model_accuracy_scores.index(nilai_maksimum)+1</span>
 
-<span class="n">modelc50</span><span class="o">=</span><span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/SMOTE/mean_C50_</span><span class="si">{</span><span class="n">indeks_maksimum</span><span class="si">}</span><span class="s1">.joblib&#39;</span><span class="p">)</span>
+<span class="n">modelc50</span><span class="o">=</span><span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/NON BALANCE/mean_C50_</span><span class="si">{</span><span class="n">indeks_maksimum</span><span class="si">}</span><span class="s1">.joblib&#39;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Evaluasi pada data Testing:&quot;</span><span class="p">)</span>
 <span class="n">temp</span><span class="o">=</span><span class="mi">0</span>
@@ -13996,685 +13279,64 @@ siiiip : 0.0
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total fitur yang telah diseleksi:  1488
 Evaluasi K-Fold Cross Validation:
 K-Fold 1:
-  Accuracy:  86.00%
-  Precision: 86.05%
-  Recall:    85.92%
-  F1-Score:  85.97%
+  Accuracy:  73.78%
+  Precision: 52.21%
+  Recall:    47.55%
+  F1-Score:  49.08%
 K-Fold 2:
-  Accuracy:  84.41%
-  Precision: 84.36%
-  Recall:    84.37%
-  F1-Score:  84.36%
+  Accuracy:  71.24%
+  Precision: 47.16%
+  Recall:    46.89%
+  F1-Score:  47.02%
 K-Fold 3:
-  Accuracy:  86.29%
-  Precision: 86.53%
-  Recall:    86.35%
-  F1-Score:  86.40%
+  Accuracy:  70.13%
+  Precision: 51.03%
+  Recall:    47.62%
+  F1-Score:  48.72%
 K-Fold 4:
-  Accuracy:  86.49%
-  Precision: 86.61%
-  Recall:    86.58%
-  F1-Score:  86.59%
+  Accuracy:  72.65%
+  Precision: 52.62%
+  Recall:    48.88%
+  F1-Score:  50.30%
 K-Fold 5:
-  Accuracy:  84.90%
-  Precision: 84.78%
-  Recall:    84.69%
-  F1-Score:  84.68%
+  Accuracy:  72.54%
+  Precision: 51.93%
+  Recall:    49.41%
+  F1-Score:  50.48%
 
 Rata-rata Evaluasi dari semua fold:
-Rata-rata Accuracy:  85.62%
-Rata-rata Precision: 85.67%
-Rata-rata Recall:    85.58%
-Rata-rata F1-Score:  85.60%
+Rata-rata Accuracy:  72.07%
+Rata-rata Precision: 50.99%
+Rata-rata Recall:    48.07%
+Rata-rata F1-Score:  49.12%
 
 Evaluasi pada data Testing:
-Accuracy:  84.60%
-Precision: 84.92%
-Recall:    84.77%
-F1-Score:  84.81%
+Accuracy:  71.06%
+Precision: 48.09%
+Recall:    47.58%
+F1-Score:  47.82%
 Classification Report:
               precision    recall  f1-score   support
 
-     Negatif       0.87      0.82      0.84       868
-      Netral       0.91      0.91      0.91       794
-     Positif       0.77      0.82      0.79       864
+     Negatif       0.43      0.43      0.43       217
+      Netral       0.20      0.18      0.19        62
+     Positif       0.81      0.82      0.82       851
 
-    accuracy                           0.85      2526
-   macro avg       0.85      0.85      0.85      2526
-weighted avg       0.85      0.85      0.85      2526
+    accuracy                           0.71      1130
+   macro avg       0.48      0.48      0.48      1130
+weighted avg       0.71      0.71      0.71      1130
 </pre></div>
 </div>
-<img alt="_images/04652a690f63b61fe38c20518dbf3e7260751e783f1a08a3fa464d288cb951e6.png" src="_images/04652a690f63b61fe38c20518dbf3e7260751e783f1a08a3fa464d288cb951e6.png" />
+<img alt="_images/f2b301e0bb84525dc6c60207b015bdf22f94747029b7a09767a50156a552dc7b.png" src="_images/f2b301e0bb84525dc6c60207b015bdf22f94747029b7a09767a50156a552dc7b.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Confusion Matrix:
-[[711  17 140]
- [  8 721  65]
- [102  57 705]]
-Waktu komputasi: 9.97 detik
-Penggunaan memori: 2.47 MB
+[[ 93   6 118]
+ [  9  11  42]
+ [113  39 699]]
+Waktu komputasi: 8.21 detik
+Penggunaan memori: 1.55 MB
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;accuracy_scores&quot;</span><span class="p">:</span><span class="n">mean_accuracy_scores</span><span class="p">,</span>
-    <span class="s2">&quot;precision_scores&quot;</span><span class="p">:</span><span class="n">mean_precision_scores</span><span class="p">,</span>
-    <span class="s2">&quot;recall_scores&quot;</span><span class="p">:</span><span class="n">mean_recall_scores</span><span class="p">,</span>
-    <span class="s2">&quot;f1_scores&quot;</span><span class="p">:</span><span class="n">mean_f1_scores</span>
-
-<span class="p">}</span>
-
-<span class="n">plotdata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">c</span><span class="p">,</span>
-    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;K=1&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;K=2&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;K=3&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;K=4&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;K=5&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Rata-rata&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Data Uji&quot;</span><span class="p">])</span>
-
-<span class="n">plotdata</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;C5.0 - Gain Ratio Threshold Mean&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;K-Fold Cross Validation&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;persentase (%)&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;persentase (%)&#39;)
-</pre></div>
-</div>
-<img alt="_images/e63b05b2ab1a6e9a106c8f8b83a0c021d22e424a900052afe1884716b25c4464.png" src="_images/e63b05b2ab1a6e9a106c8f8b83a0c021d22e424a900052afe1884716b25c4464.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_selected</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-deca44a1-6c9a-4a25-aed3-90d3b3721c42" class="colab-df-container">
-    <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>air</th>
-      <th>terjun</th>
-      <th>bagus</th>
-      <th>tiket</th>
-      <th>masuk</th>
-      <th>murah</th>
-      <th>ribu</th>
-      <th>orang</th>
-      <th>langsung</th>
-      <th>berangan</th>
-      <th>...</th>
-      <th>sajadah</th>
-      <th>perempuan</th>
-      <th>amanah</th>
-      <th>rami</th>
-      <th>keluargs</th>
-      <th>mtr</th>
-      <th>tiru</th>
-      <th>pertama</th>
-      <th>vroh</th>
-      <th>samale</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>472</th>
-      <td>0.638639</td>
-      <td>0.785472</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.013522</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>10415</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>12175</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>11569</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.019525</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>12461</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.029127</td>
-      <td>0.0</td>
-      <td>0.061467</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>11964</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>5191</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.629089</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>5390</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>860</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>7270</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.065650</td>
-      <td>0.0</td>
-      <td>0.138541</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>10101 rows × 1488 columns</p>
-</div>
-    <div class="colab-df-buttons">
-
-  <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-deca44a1-6c9a-4a25-aed3-90d3b3721c42')"
-            title="Convert this dataframe to an interactive table."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
-    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
-  </svg>
-    </button>
-
-  <style>
-    .colab-df-container {
-      display:flex;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    .colab-df-buttons div {
-      margin-bottom: 4px;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-    <script>
-      const buttonEl =
-        document.querySelector('#df-deca44a1-6c9a-4a25-aed3-90d3b3721c42 button.colab-df-convert');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      async function convertToInteractive(key) {
-        const element = document.querySelector('#df-deca44a1-6c9a-4a25-aed3-90d3b3721c42');
-        const dataTable =
-          await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                    [key], {});
-        if (!dataTable) return;
-
-        const docLinkHtml = 'Like what you see? Visit the ' +
-          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-          + ' to learn more about interactive tables.';
-        element.innerHTML = '';
-        dataTable['output_type'] = 'display_data';
-        await google.colab.output.renderOutput(dataTable, element);
-        const docLink = document.createElement('div');
-        docLink.innerHTML = docLinkHtml;
-        element.appendChild(docLink);
-      }
-    </script>
-  </div>
-
-
-<div id="df-80f088f0-ca13-4b2e-bd66-00c4998a12dd">
-  <button class="colab-df-quickchart" onclick="quickchart('df-80f088f0-ca13-4b2e-bd66-00c4998a12dd')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-80f088f0-ca13-4b2e-bd66-00c4998a12dd button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
-
-  <div id="id_012ca8ce-a5d6-42eb-9edf-991309e439ba">
-    <style>
-      .colab-df-generate {
-        background-color: #E8F0FE;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        display: none;
-        fill: #1967D2;
-        height: 32px;
-        padding: 0 0 0 0;
-        width: 32px;
-      }
-
-      .colab-df-generate:hover {
-        background-color: #E2EBFA;
-        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-        fill: #174EA6;
-      }
-
-      [theme=dark] .colab-df-generate {
-        background-color: #3B4455;
-        fill: #D2E3FC;
-      }
-
-      [theme=dark] .colab-df-generate:hover {
-        background-color: #434B5C;
-        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-        fill: #FFFFFF;
-      }
-    </style>
-    <button class="colab-df-generate" onclick="generateWithVariable('X_train_selected')"
-            title="Generate code using this dataframe."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
-  </svg>
-    </button>
-    <script>
-      (() => {
-      const buttonEl =
-        document.querySelector('#id_012ca8ce-a5d6-42eb-9edf-991309e439ba button.colab-df-generate');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      buttonEl.onclick = () => {
-        google.colab.notebook.generateWithVariable('X_train_selected');
-      }
-      })();
-    </script>
-  </div>
-
-    </div>
-  </div>
-</div></div>
 </div>
 </section>
 <section id="median">
@@ -14733,7 +13395,7 @@ Penggunaan memori: 2.47 MB
     <span class="n">temp</span><span class="o">=</span><span class="mi">0</span>
 
     <span class="c1"># Melatih model pada data latih fold</span>
-    <span class="c1"># modelc50=joblib.load(f&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/SMOTE/median_C50_{temp_for_joblib}.joblib&#39;)</span>
+    <span class="c1"># modelc50=joblib.load(f&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/NON BALANCE/median_C50_{temp_for_joblib}.joblib&#39;)</span>
 
     <span class="c1"># Melatih model pada data latih fold</span>
     <span class="n">modelc50</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_fold</span><span class="p">,</span> <span class="n">y_train_fold</span><span class="p">)</span>
@@ -14761,7 +13423,7 @@ Penggunaan memori: 2.47 MB
     <span class="n">modelc50</span><span class="o">.</span><span class="n">recall</span><span class="o">=</span><span class="n">recall</span>
     <span class="n">modelc50</span><span class="o">.</span><span class="n">f1</span><span class="o">=</span><span class="n">f1</span>
 
-    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">modelc50</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/SMOTE/median_C50_</span><span class="si">{</span><span class="n">temp_for_joblib</span><span class="si">}</span><span class="s1">.joblib&#39;</span><span class="p">)</span>
+    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">modelc50</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/NON BALANCE/median_C50_</span><span class="si">{</span><span class="n">temp_for_joblib</span><span class="si">}</span><span class="s1">.joblib&#39;</span><span class="p">)</span>
     <span class="c1"># Simpan metrik evaluasi</span>
     <span class="n">median_accuracy_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy</span><span class="p">)</span>
     <span class="n">median_precision_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precision</span><span class="p">)</span>
@@ -14791,7 +13453,7 @@ Penggunaan memori: 2.47 MB
 <span class="n">nilai_maksimum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">model_accuracy_scores</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">indeks_maksimum</span> <span class="o">=</span> <span class="n">model_accuracy_scores</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">nilai_maksimum</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
 
-<span class="n">modelc50</span><span class="o">=</span><span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/SMOTE/median_C50_</span><span class="si">{</span><span class="n">indeks_maksimum</span><span class="si">}</span><span class="s1">.joblib&#39;</span><span class="p">)</span>
+<span class="n">modelc50</span><span class="o">=</span><span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/content/drive/MyDrive/Textmining/metode/DATA/MODEL/NON BALANCE/median_C50_</span><span class="si">{</span><span class="n">indeks_maksimum</span><span class="si">}</span><span class="s1">.joblib&#39;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Evaluasi pada data Testing:&quot;</span><span class="p">)</span>
 <span class="n">temp</span><span class="o">=</span><span class="mi">0</span>
@@ -14856,99 +13518,63 @@ Penggunaan memori: 2.47 MB
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total fitur yang telah diseleksi:  2108
 Evaluasi K-Fold Cross Validation:
 K-Fold 1:
-  Accuracy:  85.21%
-  Precision: 85.42%
-  Recall:    85.15%
-  F1-Score:  85.23%
+  Accuracy:  74.56%
+  Precision: 53.69%
+  Recall:    48.19%
+  F1-Score:  49.84%
 K-Fold 2:
-  Accuracy:  85.79%
-  Precision: 85.88%
-  Recall:    85.75%
-  F1-Score:  85.81%
+  Accuracy:  71.35%
+  Precision: 46.14%
+  Recall:    45.98%
+  F1-Score:  46.04%
 K-Fold 3:
-  Accuracy:  86.58%
-  Precision: 86.81%
-  Recall:    86.64%
-  F1-Score:  86.70%
+  Accuracy:  70.69%
+  Precision: 50.87%
+  Recall:    47.01%
+  F1-Score:  48.14%
 K-Fold 4:
-  Accuracy:  87.33%
-  Precision: 87.57%
-  Recall:    87.38%
-  F1-Score:  87.46%
+  Accuracy:  72.65%
+  Precision: 52.64%
+  Recall:    47.56%
+  F1-Score:  49.34%
 K-Fold 5:
-  Accuracy:  85.79%
-  Precision: 85.59%
-  Recall:    85.54%
-  F1-Score:  85.53%
+  Accuracy:  74.20%
+  Precision: 53.33%
+  Recall:    50.58%
+  F1-Score:  51.67%
 
 Rata-rata Evaluasi dari semua fold:
-Rata-rata Accuracy:  86.14%
-Rata-rata Precision: 86.25%
-Rata-rata Recall:    86.09%
-Rata-rata F1-Score:  86.14%
+Rata-rata Accuracy:  72.69%
+Rata-rata Precision: 51.34%
+Rata-rata Recall:    47.86%
+Rata-rata F1-Score:  49.01%
 
 Evaluasi pada data Testing:
-Accuracy:  85.63%
-Precision: 86.08%
-Recall:    85.77%
-F1-Score:  85.87%
+Accuracy:  71.24%
+Precision: 46.85%
+Recall:    45.59%
+F1-Score:  46.13%
 Classification Report:
               precision    recall  f1-score   support
 
-     Negatif       0.87      0.83      0.85       868
-      Netral       0.93      0.91      0.92       794
-     Positif       0.78      0.84      0.81       864
+     Negatif       0.44      0.41      0.42       217
+      Netral       0.16      0.13      0.14        62
+     Positif       0.81      0.83      0.82       851
 
-    accuracy                           0.86      2526
-   macro avg       0.86      0.86      0.86      2526
-weighted avg       0.86      0.86      0.86      2526
+    accuracy                           0.71      1130
+   macro avg       0.47      0.46      0.46      1130
+weighted avg       0.70      0.71      0.71      1130
 </pre></div>
 </div>
-<img alt="_images/0ca1783f966d0f365a9f48cdb7c331dade4fa460be680f86b9d3090bbfebd411.png" src="_images/0ca1783f966d0f365a9f48cdb7c331dade4fa460be680f86b9d3090bbfebd411.png" />
+<img alt="_images/f2e88b5b4926dd2ef3175e9326cb724dbdcc198a5d31fac6d2e5a494a7793216.png" src="_images/f2e88b5b4926dd2ef3175e9326cb724dbdcc198a5d31fac6d2e5a494a7793216.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Confusion Matrix:
-[[719  15 134]
- [  8 719  67]
- [ 99  40 725]]
-Waktu komputasi: 12.89 detik
-Penggunaan memori: 2.47 MB
+[[ 88   5 124]
+ [  8   8  46]
+ [106  36 709]]
+Waktu komputasi: 7.46 detik
+Penggunaan memori: 1.55 MB
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;accuracy_scores&quot;</span><span class="p">:</span><span class="n">median_accuracy_scores</span><span class="p">,</span>
-    <span class="s2">&quot;precision_scores&quot;</span><span class="p">:</span><span class="n">median_precision_scores</span><span class="p">,</span>
-    <span class="s2">&quot;recall_scores&quot;</span><span class="p">:</span><span class="n">median_recall_scores</span><span class="p">,</span>
-    <span class="s2">&quot;f1_scores&quot;</span><span class="p">:</span><span class="n">median_f1_scores</span>
-
-<span class="p">}</span>
-
-<span class="n">plotdata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">c</span><span class="p">,</span>
-    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;K=1&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;K=2&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;K=3&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;K=4&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;K=5&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Rata-rata&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Data Uji&quot;</span><span class="p">])</span>
-
-<span class="n">plotdata</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;C5.0 - Gain Ratio Threshold Median&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;K-Fold Cross Validation&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;persentase (%)&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;persentase (%)&#39;)
-</pre></div>
-</div>
-<img alt="_images/ce8448538c78b002547a4c809f9d3cab1fe310f54c11dbc53fd6e7e82166d330.png" src="_images/ce8448538c78b002547a4c809f9d3cab1fe310f54c11dbc53fd6e7e82166d330.png" />
 </div>
 </div>
 </section>
@@ -14986,13 +13612,22 @@ Penggunaan memori: 2.47 MB
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Decision%20Tree%20C5.0%20With%20ROS.html"
+       href="Preprocessing.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Preprocessing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Decision%20Tree%20C5.0%20With%20ROS.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Decision Tree C5.0 With ROS</p>
       </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -15014,8 +13649,7 @@ Penggunaan memori: 2.47 MB
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation">preparation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">load data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">preprocessing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">Smote</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">tf idf</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data">Split Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-ratio">Gain Ratio</a><ul class="nav section-nav flex-column">
