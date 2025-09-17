@@ -16,37 +16,37 @@ Dari data itu, kita bisa melakukan banyak hal, misalnya:
 
 Klasifikasi → menandai apakah ulasan positif atau negatif.
 
-o	Clustering → mengelompokkan berita berdasarkan topik.
+    o	Clustering → mengelompokkan berita berdasarkan topik.
 
-o	Ekstraksi kata kunci → mencari kata yang paling sering muncul.
+    o	Ekstraksi kata kunci → mencari kata yang paling sering muncul.
 
-o	Sentiment analysis → memahami emosi dalam teks (positif, negative, dan netral)
+    o	Sentiment analysis → memahami emosi dalam teks (positif, negative, dan netral)
 
 Contoh Sederhana
 
 Misal ada 3 ulasan pembeli:
 
-•	“Produknya bagus sekali.”
+    •	“Produknya bagus sekali.”
 
-•	“Pengiriman lambat, saya kecewa.”
+    •	“Pengiriman lambat, saya kecewa.”
 
 Dengan text mining, komputer bisa simpulkan:
 
-•	Kata positif: bagus, murah, oke
+    •	Kata positif: bagus, murah, oke
 
-•	Kata negatif: lambat
+    •	Kata negatif: lambat
 
-•	Hasil: 1 ulasan positif, 1 ulasan negatif.
+    •	Hasil: 1 ulasan positif, 1 ulasan negatif.
 ________________________________________
 Analogi untuk Orang Awam
 
 Text mining itu ibarat menyaring pasir untuk mencari emas.
 
-•	Pasir = kumpulan teks yang sangat banyak.
+    •	Pasir = kumpulan teks yang sangat banyak.
 
-•	Proses menyaring = pembersihan dan analisis teks.
+    •	Proses menyaring = pembersihan dan analisis teks.
 
-•	Emas = informasi penting (pola, sentimen, tren).
+    •	Emas = informasi penting (pola, sentimen, tren).
 
 Pada kasus ini saya akan mengklasifikaskan ulasan pariwisata yang ada di madura dengan sentiment analisist
 
