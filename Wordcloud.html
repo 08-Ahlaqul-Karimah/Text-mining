@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -67,7 +64,6 @@
     <link rel="prev" title="Welcome to My Text Mining" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -83,8 +79,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -92,6 +99,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -99,8 +107,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -116,8 +124,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -147,17 +154,21 @@
     
     
     <img src="_static/text mining.png" class="logo__image only-light" alt="Text Mining - Home"/>
-    <img src="_static/text mining.png" class="logo__image only-dark pst-js-only" alt="Text Mining - Home"/>
+    <script>document.write(`<img src="_static/text mining.png" class="logo__image only-dark" alt="Text Mining - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -371,16 +382,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -520,18 +539,18 @@
 <h1>LOAD DATA - WordCloud<a class="headerlink" href="#load-data-wordcloud" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1">#pandas</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1">#numpy</span>
-<span class="kn">import</span> <span class="nn">re</span> <span class="c1">#regex</span>
-<span class="kn">import</span> <span class="nn">string</span> <span class="c1">#string population</span>
-<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span> <span class="c1">#tokenize</span>
-<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span> <span class="c1">#stopword</span>
-<span class="kn">from</span> <span class="nn">nltk.stem.porter</span> <span class="kn">import</span> <span class="n">PorterStemmer</span> <span class="c1">#stemming</span>
-<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span> <span class="c1">#status bar</span>
-<span class="kn">import</span> <span class="nn">nltk</span>
-<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span> <span class="c1">#PCA</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1">#pandas</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> <span class="c1">#numpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span> <span class="c1">#regex</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">string</span> <span class="c1">#string population</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span> <span class="c1">#tokenize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">stopwords</span> <span class="c1">#stopword</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.stem.porter</span><span class="w"> </span><span class="kn">import</span> <span class="n">PorterStemmer</span> <span class="c1">#stemming</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span> <span class="c1">#status bar</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span> <span class="c1">#PCA</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -539,12 +558,12 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span><span class="p">,</span> <span class="n">ImageColorGenerator</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wordcloud</span><span class="w"> </span><span class="kn">import</span> <span class="n">WordCloud</span><span class="p">,</span> <span class="n">ImageColorGenerator</span>
 </pre></div>
 </div>
 </div>
@@ -562,7 +581,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-abbe221e-5c6e-4ae4-a7a2-33d8694697f0" class="colab-df-container">
+  <div id="df-a6f31f12-8fa6-4afb-8c6f-091d1a0f8062" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -623,7 +642,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-abbe221e-5c6e-4ae4-a7a2-33d8694697f0')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a6f31f12-8fa6-4afb-8c6f-091d1a0f8062')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -675,12 +694,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-abbe221e-5c6e-4ae4-a7a2-33d8694697f0 button.colab-df-convert');
+        document.querySelector('#df-a6f31f12-8fa6-4afb-8c6f-091d1a0f8062 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-abbe221e-5c6e-4ae4-a7a2-33d8694697f0');
+        const element = document.querySelector('#df-a6f31f12-8fa6-4afb-8c6f-091d1a0f8062');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -779,7 +798,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/452119573495ee4c1cb8488f66c0a8ba804de0033a6168b8285a4e86b01e5135.png" src="_images/452119573495ee4c1cb8488f66c0a8ba804de0033a6168b8285a4e86b01e5135.png" />
+<img alt="_images/974a5e001a49254c6c593997c44f1bd66bf1acb94391d5801cce59eeffec38e6.png" src="_images/974a5e001a49254c6c593997c44f1bd66bf1acb94391d5801cce59eeffec38e6.png" />
 </div>
 </div>
 </section>
@@ -808,7 +827,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/931d8177881846c68625da54846db16a55a61625104c48318456a570cd4b1db1.png" src="_images/931d8177881846c68625da54846db16a55a61625104c48318456a570cd4b1db1.png" />
+<img alt="_images/79097dea360d601ef5acb6b22adda33685fbb289e0efebe16640d6e731e1c342.png" src="_images/79097dea360d601ef5acb6b22adda33685fbb289e0efebe16640d6e731e1c342.png" />
 </div>
 </div>
 </section>
@@ -838,7 +857,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e536aedff8c912961224dda5d8ddb78650cd4c7f88b57cffd1bc7fd11ffcefef.png" src="_images/e536aedff8c912961224dda5d8ddb78650cd4c7f88b57cffd1bc7fd11ffcefef.png" />
+<img alt="_images/6db47deb6a2dbbbfb6acb63acd6c5043c5cc18eb5aa2c32a800c98999277fcff.png" src="_images/6db47deb6a2dbbbfb6acb63acd6c5043c5cc18eb5aa2c32a800c98999277fcff.png" />
 </div>
 </div>
 </section>
@@ -856,7 +875,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d246b122-780f-4457-a636-9b0d91fee20b" class="colab-df-container">
+  <div id="df-43085ff0-8fed-41dc-bf64-5dc2d47b0c0e" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -917,7 +936,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d246b122-780f-4457-a636-9b0d91fee20b')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-43085ff0-8fed-41dc-bf64-5dc2d47b0c0e')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -969,12 +988,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-d246b122-780f-4457-a636-9b0d91fee20b button.colab-df-convert');
+        document.querySelector('#df-43085ff0-8fed-41dc-bf64-5dc2d47b0c0e button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d246b122-780f-4457-a636-9b0d91fee20b');
+        const element = document.querySelector('#df-43085ff0-8fed-41dc-bf64-5dc2d47b0c0e');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1077,7 +1096,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/aec17416f719c0820c5fe88fb7ecc930413b8dedd4ed7bd7cafd2a1d86179675.png" src="_images/aec17416f719c0820c5fe88fb7ecc930413b8dedd4ed7bd7cafd2a1d86179675.png" />
+<img alt="_images/431accde8449a512be6c3702471b8ace9d61879f7160ffc16c0c27edcbf63441.png" src="_images/431accde8449a512be6c3702471b8ace9d61879f7160ffc16c0c27edcbf63441.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1116,7 +1135,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/638bc2b9066b266dbfec6d3fdf9b868d5f23ad93c38dc825454fb098bdfd664f.png" src="_images/638bc2b9066b266dbfec6d3fdf9b868d5f23ad93c38dc825454fb098bdfd664f.png" />
+<img alt="_images/34cbe1fc97cf0e83167745c0c9eac46c1a019b2a269b72a102075fdd2b328eac.png" src="_images/34cbe1fc97cf0e83167745c0c9eac46c1a019b2a269b72a102075fdd2b328eac.png" />
 </div>
 </div>
 </section>
@@ -1146,7 +1165,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8eeb3368c7b4f4201fb4324c593af8bd63bfdf8cbe893ec8c4f01040d9f76027.png" src="_images/8eeb3368c7b4f4201fb4324c593af8bd63bfdf8cbe893ec8c4f01040d9f76027.png" />
+<img alt="_images/d5a2155324dd96db9cea079470169f783802ab3622c9ccc2a10115d55a1b2d0e.png" src="_images/d5a2155324dd96db9cea079470169f783802ab3622c9ccc2a10115d55a1b2d0e.png" />
 </div>
 </div>
 </section>
@@ -1164,7 +1183,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0c436dbc-929b-4cef-9659-87a934d2b56c" class="colab-df-container">
+  <div id="df-7b3ce799-431a-4316-80bf-7cfcb0d452ab" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1225,7 +1244,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-0c436dbc-929b-4cef-9659-87a934d2b56c')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-7b3ce799-431a-4316-80bf-7cfcb0d452ab')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1277,12 +1296,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-0c436dbc-929b-4cef-9659-87a934d2b56c button.colab-df-convert');
+        document.querySelector('#df-7b3ce799-431a-4316-80bf-7cfcb0d452ab button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-0c436dbc-929b-4cef-9659-87a934d2b56c');
+        const element = document.querySelector('#df-7b3ce799-431a-4316-80bf-7cfcb0d452ab');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1385,7 +1404,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/939c46d8df35ba5a850b867bdf0dcb9ad1802803378a505489ce229ac78137c6.png" src="_images/939c46d8df35ba5a850b867bdf0dcb9ad1802803378a505489ce229ac78137c6.png" />
+<img alt="_images/efecf545b76001bfb2b07afa44904953973041fdf947686f3f8bdbf2a9a6a95b.png" src="_images/efecf545b76001bfb2b07afa44904953973041fdf947686f3f8bdbf2a9a6a95b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1424,7 +1443,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5f20f564b46ee69d76943ada98071a30d4678fccbee5825317e3aec436db52b6.png" src="_images/5f20f564b46ee69d76943ada98071a30d4678fccbee5825317e3aec436db52b6.png" />
+<img alt="_images/a40af612df37f38f716f67dc701c50c4a68c0c58d48ac6b0aff0e6b367598ec4.png" src="_images/a40af612df37f38f716f67dc701c50c4a68c0c58d48ac6b0aff0e6b367598ec4.png" />
 </div>
 </div>
 </section>
@@ -1454,7 +1473,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2613dc2b11f4b3d8964f675fa90884094d12a30668e9f5211ac04378ed8b4d36.png" src="_images/2613dc2b11f4b3d8964f675fa90884094d12a30668e9f5211ac04378ed8b4d36.png" />
+<img alt="_images/1fd0b21f0b6f448cff9e0d4e56b216388f3ec0081797746496039398d72e4804.png" src="_images/1fd0b21f0b6f448cff9e0d4e56b216388f3ec0081797746496039398d72e4804.png" />
 </div>
 </div>
 </section>
@@ -1473,7 +1492,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-77bf27d0-66a7-4ae2-a2f6-6fcb7e159b36" class="colab-df-container">
+  <div id="df-5137e4f2-5406-4568-abf9-661b8a5a1433" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1571,7 +1590,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-77bf27d0-66a7-4ae2-a2f6-6fcb7e159b36')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5137e4f2-5406-4568-abf9-661b8a5a1433')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1623,12 +1642,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-77bf27d0-66a7-4ae2-a2f6-6fcb7e159b36 button.colab-df-convert');
+        document.querySelector('#df-5137e4f2-5406-4568-abf9-661b8a5a1433 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-77bf27d0-66a7-4ae2-a2f6-6fcb7e159b36');
+        const element = document.querySelector('#df-5137e4f2-5406-4568-abf9-661b8a5a1433');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1731,7 +1750,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/13d12ef88d887c1154bd55b6e1b10853f47bc1bd7c829a2b26836d12063109e4.png" src="_images/13d12ef88d887c1154bd55b6e1b10853f47bc1bd7c829a2b26836d12063109e4.png" />
+<img alt="_images/11cce8f966bd43bfd1807146d680e8c7f9ac6a020086e6b9c926d483f833e9f4.png" src="_images/11cce8f966bd43bfd1807146d680e8c7f9ac6a020086e6b9c926d483f833e9f4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1770,7 +1789,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1b4307a9187ae84937bef57f52d49a3e04dcc56180321ab2d8510d3f15d84146.png" src="_images/1b4307a9187ae84937bef57f52d49a3e04dcc56180321ab2d8510d3f15d84146.png" />
+<img alt="_images/f29e1df8e1d52d9ab77774436b66c720a5b9e1bb521f9e144b0b902829462439.png" src="_images/f29e1df8e1d52d9ab77774436b66c720a5b9e1bb521f9e144b0b902829462439.png" />
 </div>
 </div>
 </section>
@@ -1800,7 +1819,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/54e010d3b5d239fef5ac2597d3b5ed9cc77b5872b282015acc9bccd3c88d9ed2.png" src="_images/54e010d3b5d239fef5ac2597d3b5ed9cc77b5872b282015acc9bccd3c88d9ed2.png" />
+<img alt="_images/da74479f12a9d40ed597a7f2c76e5d975aa46ff98336887fa40312e0790633bd.png" src="_images/da74479f12a9d40ed597a7f2c76e5d975aa46ff98336887fa40312e0790633bd.png" />
 </div>
 </div>
 </section>
@@ -1818,7 +1837,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-6e2016da-94c4-4b99-9ec0-7a006fd4a72f" class="colab-df-container">
+  <div id="df-4453b44d-72c1-45f7-b5c1-8abea355520e" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1879,7 +1898,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-6e2016da-94c4-4b99-9ec0-7a006fd4a72f')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4453b44d-72c1-45f7-b5c1-8abea355520e')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1931,12 +1950,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-6e2016da-94c4-4b99-9ec0-7a006fd4a72f button.colab-df-convert');
+        document.querySelector('#df-4453b44d-72c1-45f7-b5c1-8abea355520e button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-6e2016da-94c4-4b99-9ec0-7a006fd4a72f');
+        const element = document.querySelector('#df-4453b44d-72c1-45f7-b5c1-8abea355520e');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2039,7 +2058,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/504bc8f3736c380f5b851a76d4077666afb40ca4c43fe797ff60b93d511c9cb3.png" src="_images/504bc8f3736c380f5b851a76d4077666afb40ca4c43fe797ff60b93d511c9cb3.png" />
+<img alt="_images/396328a45a5a848931545d3a8dbe448886102acbb2911cf0b951f6e336e65068.png" src="_images/396328a45a5a848931545d3a8dbe448886102acbb2911cf0b951f6e336e65068.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2078,7 +2097,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7699959bfe091bdbe6630726828d6502613bfb37120ac36dc02f1c83abf3af80.png" src="_images/7699959bfe091bdbe6630726828d6502613bfb37120ac36dc02f1c83abf3af80.png" />
+<img alt="_images/a624e83b0e0691da8dd752c500ebfca274600fc1b0687863e98eeecb6a5765d8.png" src="_images/a624e83b0e0691da8dd752c500ebfca274600fc1b0687863e98eeecb6a5765d8.png" />
 </div>
 </div>
 </section>
@@ -2108,7 +2127,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/637a2933a593fe3aef1c8a2831696de944fd036f12442e715045a971875e0668.png" src="_images/637a2933a593fe3aef1c8a2831696de944fd036f12442e715045a971875e0668.png" />
+<img alt="_images/0b2ae2a575d9bccd87ad7ef61a2d90b2157cbd0fb6ba82b2e07bdde956d46139.png" src="_images/0b2ae2a575d9bccd87ad7ef61a2d90b2157cbd0fb6ba82b2e07bdde956d46139.png" />
 </div>
 </div>
 </section>
@@ -2126,7 +2145,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-205fcc0e-f0eb-4192-b038-2cd162786e71" class="colab-df-container">
+  <div id="df-bfd6aeea-497a-4ca1-8fa6-bb88f7f06cb9" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2187,7 +2206,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-205fcc0e-f0eb-4192-b038-2cd162786e71')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-bfd6aeea-497a-4ca1-8fa6-bb88f7f06cb9')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2239,12 +2258,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-205fcc0e-f0eb-4192-b038-2cd162786e71 button.colab-df-convert');
+        document.querySelector('#df-bfd6aeea-497a-4ca1-8fa6-bb88f7f06cb9 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-205fcc0e-f0eb-4192-b038-2cd162786e71');
+        const element = document.querySelector('#df-bfd6aeea-497a-4ca1-8fa6-bb88f7f06cb9');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2347,7 +2366,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bec7bf0e8bf5605c3da63c296b3446c1de7ca56ee37a5cc838d14477efd50996.png" src="_images/bec7bf0e8bf5605c3da63c296b3446c1de7ca56ee37a5cc838d14477efd50996.png" />
+<img alt="_images/1487d2b73180ebf4baadb4657452edd0bad72bf9377b36fb840b1945edcf87ac.png" src="_images/1487d2b73180ebf4baadb4657452edd0bad72bf9377b36fb840b1945edcf87ac.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2386,7 +2405,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2e8a83ced2ee1396f4d66e3baca44daa87fed2ec4cd141c02f14672b942e1f0f.png" src="_images/2e8a83ced2ee1396f4d66e3baca44daa87fed2ec4cd141c02f14672b942e1f0f.png" />
+<img alt="_images/afdc9c5e9ec4b82dee09099755a0e5b08f6b68b948607612cee2b046afe0881f.png" src="_images/afdc9c5e9ec4b82dee09099755a0e5b08f6b68b948607612cee2b046afe0881f.png" />
 </div>
 </div>
 </section>
@@ -2416,7 +2435,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/46cebde76171fc141b50a8ea8ed64da952e4041953545bde852f653e5b4889d3.png" src="_images/46cebde76171fc141b50a8ea8ed64da952e4041953545bde852f653e5b4889d3.png" />
+<img alt="_images/7305a3c59d9697f161eb2035e24fc1cd1eab72dc8e1966ace665f6c71ede3959.png" src="_images/7305a3c59d9697f161eb2035e24fc1cd1eab72dc8e1966ace665f6c71ede3959.png" />
 </div>
 </div>
 </section>
@@ -2434,7 +2453,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ace87296-8359-46fe-b5df-be0fb7317094" class="colab-df-container">
+  <div id="df-9723c75e-20f1-462a-921e-2357c261e3ff" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2495,7 +2514,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-ace87296-8359-46fe-b5df-be0fb7317094')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-9723c75e-20f1-462a-921e-2357c261e3ff')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2547,12 +2566,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-ace87296-8359-46fe-b5df-be0fb7317094 button.colab-df-convert');
+        document.querySelector('#df-9723c75e-20f1-462a-921e-2357c261e3ff button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-ace87296-8359-46fe-b5df-be0fb7317094');
+        const element = document.querySelector('#df-9723c75e-20f1-462a-921e-2357c261e3ff');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2655,7 +2674,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d62bd658c96e60f37e9dfd94676a936306401b7519be9835008f4b5a4ebef779.png" src="_images/d62bd658c96e60f37e9dfd94676a936306401b7519be9835008f4b5a4ebef779.png" />
+<img alt="_images/861b7e94d42e35c3314d7f8e31996ecc7f8e332dac000d5465d17d26fa49cd87.png" src="_images/861b7e94d42e35c3314d7f8e31996ecc7f8e332dac000d5465d17d26fa49cd87.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2694,7 +2713,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/00a0759bb0418fdffce6ba21c4f817b167bb96e1b104cdc29ce27d1fecb1131c.png" src="_images/00a0759bb0418fdffce6ba21c4f817b167bb96e1b104cdc29ce27d1fecb1131c.png" />
+<img alt="_images/140a22ff48b0b0fcd8f139806a19fc9872969276b5426bcfdc6c3471f00fabc1.png" src="_images/140a22ff48b0b0fcd8f139806a19fc9872969276b5426bcfdc6c3471f00fabc1.png" />
 </div>
 </div>
 </section>
@@ -2724,7 +2743,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ff2abbc1d6452ebddc3e19d91837874a86dc0a3ce42d59de3d96f4e47772c7a8.png" src="_images/ff2abbc1d6452ebddc3e19d91837874a86dc0a3ce42d59de3d96f4e47772c7a8.png" />
+<img alt="_images/7d2f1b2d1045f8ff3e5a352d8d88e5021322e9bd7676a4befe709e73d30f537c.png" src="_images/7d2f1b2d1045f8ff3e5a352d8d88e5021322e9bd7676a4befe709e73d30f537c.png" />
 </div>
 </div>
 </section>
@@ -2742,7 +2761,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-65ac97cf-f88a-4c52-9b76-97f7a3afbda9" class="colab-df-container">
+  <div id="df-ac639526-7409-47f2-841e-4983d9f6f268" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2803,7 +2822,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-65ac97cf-f88a-4c52-9b76-97f7a3afbda9')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ac639526-7409-47f2-841e-4983d9f6f268')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2855,12 +2874,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-65ac97cf-f88a-4c52-9b76-97f7a3afbda9 button.colab-df-convert');
+        document.querySelector('#df-ac639526-7409-47f2-841e-4983d9f6f268 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-65ac97cf-f88a-4c52-9b76-97f7a3afbda9');
+        const element = document.querySelector('#df-ac639526-7409-47f2-841e-4983d9f6f268');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2963,7 +2982,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8274c170b3f79d2380620d1f728a37a54abab4294fb48da256334a02bbac9dd3.png" src="_images/8274c170b3f79d2380620d1f728a37a54abab4294fb48da256334a02bbac9dd3.png" />
+<img alt="_images/b5dfbdf747ff447b709c9bd70427a9e164c850d99f103785609458d45dc26f04.png" src="_images/b5dfbdf747ff447b709c9bd70427a9e164c850d99f103785609458d45dc26f04.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3002,7 +3021,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/39ef44dad514414c33011c1e7a0f891886106b5bfbd3e94135a183a074af0d8e.png" src="_images/39ef44dad514414c33011c1e7a0f891886106b5bfbd3e94135a183a074af0d8e.png" />
+<img alt="_images/d4268d0e6f1b30e701b024a62d5d2641d450f2374b277351a35791c26c89fbe2.png" src="_images/d4268d0e6f1b30e701b024a62d5d2641d450f2374b277351a35791c26c89fbe2.png" />
 </div>
 </div>
 </section>
@@ -3032,7 +3051,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3a3ad5086ad135fcf890eb117bed0d9493346cc7ad6e0bb2895710a9096b0edb.png" src="_images/3a3ad5086ad135fcf890eb117bed0d9493346cc7ad6e0bb2895710a9096b0edb.png" />
+<img alt="_images/a3295fc3b8dc926a6bfa814b9d5585183fbc1d04acff85a4d2bbacc175d47db9.png" src="_images/a3295fc3b8dc926a6bfa814b9d5585183fbc1d04acff85a4d2bbacc175d47db9.png" />
 </div>
 </div>
 </section>
@@ -3050,7 +3069,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-19c68868-14b4-464a-ae54-cf263b472a35" class="colab-df-container">
+  <div id="df-2f2f3c02-3b9d-4ae2-9d1f-2b16322ec7c0" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3111,7 +3130,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-19c68868-14b4-464a-ae54-cf263b472a35')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2f2f3c02-3b9d-4ae2-9d1f-2b16322ec7c0')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -3163,12 +3182,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-19c68868-14b4-464a-ae54-cf263b472a35 button.colab-df-convert');
+        document.querySelector('#df-2f2f3c02-3b9d-4ae2-9d1f-2b16322ec7c0 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-19c68868-14b4-464a-ae54-cf263b472a35');
+        const element = document.querySelector('#df-2f2f3c02-3b9d-4ae2-9d1f-2b16322ec7c0');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3271,7 +3290,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/dd9357aa1b69ad8bdc8aa02816769a65d76d1f5d60e32bc4deb4b2cf34860676.png" src="_images/dd9357aa1b69ad8bdc8aa02816769a65d76d1f5d60e32bc4deb4b2cf34860676.png" />
+<img alt="_images/ca09fb99f924529a87c88b3cee2d68464ce81fc16bbe5db6d5bbfc1cc63601e9.png" src="_images/ca09fb99f924529a87c88b3cee2d68464ce81fc16bbe5db6d5bbfc1cc63601e9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3310,7 +3329,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d10bfd8f9f8176a610841856bcc1bb088eaa96200d1af247dfb30b3c6b3c5940.png" src="_images/d10bfd8f9f8176a610841856bcc1bb088eaa96200d1af247dfb30b3c6b3c5940.png" />
+<img alt="_images/d02d58ee86d26ddd57c20fc0107a1ba0f027aa92d838e466b5de5e6359aef886.png" src="_images/d02d58ee86d26ddd57c20fc0107a1ba0f027aa92d838e466b5de5e6359aef886.png" />
 </div>
 </div>
 </section>
@@ -3340,7 +3359,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5c30c619a11d406ab4a740f026385ec23831adb204e5aa09c0797e01a04e8acf.png" src="_images/5c30c619a11d406ab4a740f026385ec23831adb204e5aa09c0797e01a04e8acf.png" />
+<img alt="_images/a2540322c1cba767ab0c619b37f5af5714cd3e63b10bf2a83e49d2ee605b0c64.png" src="_images/a2540322c1cba767ab0c619b37f5af5714cd3e63b10bf2a83e49d2ee605b0c64.png" />
 </div>
 </div>
 </section>
@@ -3358,7 +3377,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-086dc114-38a2-43a5-a326-64a49d2ee139" class="colab-df-container">
+  <div id="df-942aa65d-88a7-48e3-ba3d-6fffc600699d" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3419,7 +3438,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-086dc114-38a2-43a5-a326-64a49d2ee139')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-942aa65d-88a7-48e3-ba3d-6fffc600699d')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -3471,12 +3490,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-086dc114-38a2-43a5-a326-64a49d2ee139 button.colab-df-convert');
+        document.querySelector('#df-942aa65d-88a7-48e3-ba3d-6fffc600699d button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-086dc114-38a2-43a5-a326-64a49d2ee139');
+        const element = document.querySelector('#df-942aa65d-88a7-48e3-ba3d-6fffc600699d');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3579,7 +3598,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2eb120e89d3c6acf450fd11342bec4fac4c873e52bc8f8df6f30ee2b77671a5e.png" src="_images/2eb120e89d3c6acf450fd11342bec4fac4c873e52bc8f8df6f30ee2b77671a5e.png" />
+<img alt="_images/1b7675c675ebd864219519d81cc95a07390e28dff01612d1018b0e9de2fa0eae.png" src="_images/1b7675c675ebd864219519d81cc95a07390e28dff01612d1018b0e9de2fa0eae.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3618,7 +3637,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ffda320ad1a483298c0a76456933aff2ef2979a5b683cc2a6946bc702be1ae8a.png" src="_images/ffda320ad1a483298c0a76456933aff2ef2979a5b683cc2a6946bc702be1ae8a.png" />
+<img alt="_images/91f3e5a62f079e065cae3b61dfcd19c989357d2ed727588c3e08f4f8474eed9e.png" src="_images/91f3e5a62f079e065cae3b61dfcd19c989357d2ed727588c3e08f4f8474eed9e.png" />
 </div>
 </div>
 </section>
@@ -3648,7 +3667,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3eef83cf4de50ca8b1f81a59db19dd4ddbbd149fda65767f101eca0a5d7b4e31.png" src="_images/3eef83cf4de50ca8b1f81a59db19dd4ddbbd149fda65767f101eca0a5d7b4e31.png" />
+<img alt="_images/193408bd6933c9c66118b354215750bade6647aad95a90d4a2945752cf1591a3.png" src="_images/193408bd6933c9c66118b354215750bade6647aad95a90d4a2945752cf1591a3.png" />
 </div>
 </div>
 </section>
@@ -3666,7 +3685,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-b2890a51-10e9-43c2-bd1a-554b33f3aa10" class="colab-df-container">
+  <div id="df-b620696d-8805-46a9-8af5-943a91fbbe10" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3727,7 +3746,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-b2890a51-10e9-43c2-bd1a-554b33f3aa10')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b620696d-8805-46a9-8af5-943a91fbbe10')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -3779,12 +3798,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-b2890a51-10e9-43c2-bd1a-554b33f3aa10 button.colab-df-convert');
+        document.querySelector('#df-b620696d-8805-46a9-8af5-943a91fbbe10 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-b2890a51-10e9-43c2-bd1a-554b33f3aa10');
+        const element = document.querySelector('#df-b620696d-8805-46a9-8af5-943a91fbbe10');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3887,7 +3906,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8c5fee6691529e7c6864535c1898bb4ee1bd8cea10a6ed3a495c29138dcc47a6.png" src="_images/8c5fee6691529e7c6864535c1898bb4ee1bd8cea10a6ed3a495c29138dcc47a6.png" />
+<img alt="_images/5114eb55244d33b6ee95a64e6e228abbdf5f1488f089ba1b8f7c056fd4baea8b.png" src="_images/5114eb55244d33b6ee95a64e6e228abbdf5f1488f089ba1b8f7c056fd4baea8b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3926,7 +3945,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/08761f8d8d5ff5b4684c0245ca96e2cf389e8c4465c1551a5f2cbe8262629d27.png" src="_images/08761f8d8d5ff5b4684c0245ca96e2cf389e8c4465c1551a5f2cbe8262629d27.png" />
+<img alt="_images/a6c82c50faedb3c2d908b1cc57de67b895037729c51b8b948a002b4d1dfe77dd.png" src="_images/a6c82c50faedb3c2d908b1cc57de67b895037729c51b8b948a002b4d1dfe77dd.png" />
 </div>
 </div>
 </section>
@@ -3956,7 +3975,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0812e34285b422674f60b52ec9bc76938a70d3307b39ff4a988a0e2cb46fa173.png" src="_images/0812e34285b422674f60b52ec9bc76938a70d3307b39ff4a988a0e2cb46fa173.png" />
+<img alt="_images/32806e23cdb594104f42cf1193a40a990b7c5ddfd25b6799ab8d89ab32386671.png" src="_images/32806e23cdb594104f42cf1193a40a990b7c5ddfd25b6799ab8d89ab32386671.png" />
 </div>
 </div>
 </section>
@@ -4018,8 +4037,7 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -4177,8 +4195,8 @@ By Ahlaqul Karimah M
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
