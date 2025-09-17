@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Welcome to My Text Mining &#8212; Text Mining</title>
+    <title>Apa itu Text Mining? &#8212; Text Mining</title>
   
   
   
@@ -176,7 +176,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Welcome to My Text Mining
+                    Apa itu Text Mining?
                 </a>
             </li>
         </ul>
@@ -370,7 +370,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -381,11 +383,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to My Text Mining</h1>
+    <h1>Apa itu Text Mining?</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kumpulkan-teks-data">1.	Kumpulkan teks (data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bersihkan-teks">2.	Bersihkan teks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubah-teks-jadi-angka">3.	Ubah teks jadi angka</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cari-pola">4.	Analisis / cari pola</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -395,10 +408,49 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-my-text-mining">
-<h1>Welcome to My Text Mining<a class="headerlink" href="#welcome-to-my-text-mining" title="Link to this heading">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is structured. It shows off a few of the major file types, as well as some sample content. It does not go in-depth into any particular topic - check out the Jupyter Book documentation for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="apa-itu-text-mining">
+<h1>Apa itu Text Mining?<a class="headerlink" href="#apa-itu-text-mining" title="Link to this heading">#</a></h1>
+<p>Text Mining (penambangan teks) adalah proses menggali informasi atau pola tersembunyi dari kumpulan teks.
+Bayangkan kita punya tumpukan buku, artikel, komentar media sosial, atau ulasan produk. Kalau dibaca satu per satu pasti capek dan lama. Nah, dengan text mining, komputer bisa membaca banyak teks sekaligus lalu menyimpulkan isinya.</p>
+<hr class="docutils" />
+<p>Bagaimana Caranya?
+Secara umum, langkah-langkahnya seperti ini:</p>
+<section id="kumpulkan-teks-data">
+<h2>1.	Kumpulkan teks (data)<a class="headerlink" href="#kumpulkan-teks-data" title="Link to this heading">#</a></h2>
+<p>Misalnya kumpulan ulasan pelanggan di Tokopedia, berita online, atau tweet di Twitter. Nah pada kasus ini saya mengumpulkan ulasan Pariwisata melalui Platform Google Mpas dengan 10 wisata yang ada di madura dengan rekomendasi bu Khofifah yang dapat diakses melalui link berikut <a class="reference external" href="https://www.detik.com/jatim/wisata/d-6692826/10-wisata-keren-madura-yang-direkomendasikan-gubernur-khofifah">https://www.detik.com/jatim/wisata/d-6692826/10-wisata-keren-madura-yang-direkomendasikan-gubernur-khofifah</a>.</p>
+</section>
+<section id="bersihkan-teks">
+<h2>2.	Bersihkan teks<a class="headerlink" href="#bersihkan-teks" title="Link to this heading">#</a></h2>
+<p>Teks biasanya kotor: ada tanda baca, singkatan, kata-kata tidak penting (“yang”, “dan”, “di”).
+Jadi harus dibersihkan dulu biar rapi melalui preprocessing.</p>
+</section>
+<section id="ubah-teks-jadi-angka">
+<h2>3.	Ubah teks jadi angka<a class="headerlink" href="#ubah-teks-jadi-angka" title="Link to this heading">#</a></h2>
+<p>Komputer hanya paham angka, jadi kata-kata diubah ke bentuk numerik (misalnya menghitung frekuensi kata).</p>
+</section>
+<section id="analisis-cari-pola">
+<h2>4.	Analisis / cari pola<a class="headerlink" href="#analisis-cari-pola" title="Link to this heading">#</a></h2>
+<p>Dari data itu, kita bisa melakukan banyak hal, misalnya:
+o	Klasifikasi → menandai apakah ulasan positif atau negatif.
+o	Clustering → mengelompokkan berita berdasarkan topik.
+o	Ekstraksi kata kunci → mencari kata yang paling sering muncul.
+o	Sentiment analysis → memahami emosi dalam teks (positif, negative, dan netral)
+Contoh Sederhana
+Misal ada 3 ulasan pembeli:
+•	“Produknya bagus sekali.”
+•	“Pengiriman lambat, saya kecewa.”
+Dengan text mining, komputer bisa simpulkan:
+•	Kata positif: bagus, murah, oke
+•	Kata negatif: lambat
+•	Hasil: 1 ulasan positif, 1 ulasan negatif.</p>
+<hr class="docutils" />
+<p>Analogi untuk Orang Awam
+Text mining itu ibarat menyaring pasir untuk mencari emas.
+•	Pasir = kumpulan teks yang sangat banyak.
+•	Proses menyaring = pembersihan dan analisis teks.
+•	Emas = informasi penting (pola, sentimen, tren).
+Pada kasus ini saya akan mengklasifikaskan ulasan pariwisata yang ada di madura dengan sentiment analisist</p>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -448,6 +500,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kumpulkan-teks-data">1.	Kumpulkan teks (data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bersihkan-teks">2.	Bersihkan teks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubah-teks-jadi-angka">3.	Ubah teks jadi angka</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cari-pola">4.	Analisis / cari pola</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
